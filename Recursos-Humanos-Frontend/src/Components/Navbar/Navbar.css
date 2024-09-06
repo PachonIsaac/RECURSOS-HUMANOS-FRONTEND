@@ -11,6 +11,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    justify-content: space-between;
     gap: 24px;
     height: 100px;
 }
@@ -36,3 +37,9 @@
     align-items: center;
     margin: auto;
 }
+
+.Options a {
+    text-decoration: none;
+    color: black;
+    font-size: 32px; /* Tamaño de fuente de h2 */
+  }

@@ -1,0 +1,41 @@
+.Information {
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.Information > div {
+    margin-bottom: 64px; 
+}
+
+.Part1 {
+    margin-left: 32px;
+    display: flex;
+    
+}
+
+.Features {
+    text-align: center;
+    margin: 32px;
+}
+
+.FeaturesItems {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+}
+
+#TextPart1 {
+    min-width: 600px;
+    text-align: center;
+}
+
+button.ButtonColor {
+    margin: 0 auto;
+}
+
+#ManIlustration {
+    max-width: 500px;
+    object-fit: cover;
+    padding: 0 12px;
+}
