@@ -1,0 +1,18 @@
+.Footer {
+    display: flex;
+    padding: 32px;
+    height: auto;
+    justify-content: space-between;
+    background-color: #FB9016;
+    color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+
+#whatsapp, #instagram, #facebook {
+    width: 24px;
+    height: 24px; 
+    fill: white;
+    margin: 8px;
+}

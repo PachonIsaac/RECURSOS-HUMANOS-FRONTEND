@@ -1,7 +1,44 @@
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
   font-family:'Sora', Courier, monospace ;
+  display: flex;
 }
 
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+}
+
+button{
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.App {
+  margin-top: 100px;
+}
+
+.ButtonColor {
+  display: flex;
+  align-items: center;
+  background-color: #FB9016 ;
+  
+  color: white;
+  border-style:inherit;
+}
