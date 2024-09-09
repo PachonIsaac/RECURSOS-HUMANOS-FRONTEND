@@ -12,6 +12,8 @@ export function Navbar() {
                 <Link to='/Home'>Home</Link>
                 <Link to='/Features'>Features</Link>
                 <Link to='/AboutUs'>About Us</Link>
+                <Link to='/Features'>Features</Link>
+                <Link to='/AboutUs'>About Us</Link>
             </div>
         </section>
     )
