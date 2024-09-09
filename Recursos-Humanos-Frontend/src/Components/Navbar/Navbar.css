@@ -14,6 +14,7 @@
     justify-content: space-between;
     gap: 24px;
     height: 100px;
+    padding-left: 60px;
 }
 
 .TitleIcono {
@@ -41,5 +42,5 @@
 .Options a {
     text-decoration: none;
     color: black;
-    font-size: 32px; /* Tamaño de fuente de h2 */
+    font-size: 2vh; /* Tamaño de fuente de h2 */
   }

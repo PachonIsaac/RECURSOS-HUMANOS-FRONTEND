@@ -21,7 +21,7 @@ export function Landing() {
             </div>
             
             <div className="Features">
-                <h1> Descubre las funcionalidades clave de nuestra plataforma </h1>
+                <h1> Descubre las funcionalidades clave<br /> de nuestra plataforma </h1>
                 <h4> Nuestro sistema de recursos humanos está diseñado para hacer tu trabajo más sencillo y eficiente </h4>
                 <div className="FeaturesItems">
                     <FeatureItem itemIcon={IconBriefing} itemText="Gestión Centralizada de Personal" /> 
