@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
+import './Login.css';
 import login from '../services/auth';
 
 const LoginForm = ({ handleLogin }) => {
@@ -52,7 +53,9 @@ const LoginForm = ({ handleLogin }) => {
         </form>
         
         <br></br>
-        <p>don't have an account? <button className="register-link" onClick={() => window.location.href = '/register'}>Sign Up</button></p>
+        <p>don't have an account?
+        <br /> 
+        <a href="/register" className="register-link">Sign Up</a></p>
         
       </div>
     </div>
