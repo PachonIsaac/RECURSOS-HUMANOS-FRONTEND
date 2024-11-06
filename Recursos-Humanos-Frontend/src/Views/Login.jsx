@@ -52,11 +52,6 @@ const LoginForm = ({ handleLogin }) => {
           <button type="submit">Login</button>
         </form>
         
-        <br></br>
-        <p>don't have an account?
-        <br /> 
-        <a href="/register" className="register-link">Sign Up</a></p>
-        
       </div>
     </div>
   );
