@@ -10,9 +10,11 @@ const login = async (username, password) => {
     const response = await axios.post('http://localhost:8000/token/', formData);
     const token = response.data.access_token;
     localStorage.setItem('token', token);
+    console.log('Inicio de sesión exitoso:', token);
     return token;
   } catch (error) {
     console.error('Error de inicio de sesión:', error);
+    console.log('Error de inicio de sesión:', error);
     throw error;
   }
 };

@@ -5,7 +5,6 @@ import { Landing } from './Views/Landing'
 import { Footer } from  './Components/Footer/Footer'
 import Login from './Views/Login'
 
-const Home = () => <h1>Homeeeee</h1>
 
 export function App() {
   return (
