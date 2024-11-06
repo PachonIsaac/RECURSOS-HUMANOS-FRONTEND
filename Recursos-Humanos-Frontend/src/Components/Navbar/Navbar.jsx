@@ -9,11 +9,10 @@ export function Navbar() {
             <img className="IconoHR"src={IconHR} />
             <h1>HRMinder</h1>
             <div className="Options">
-                <Link to='/Home'>Home</Link>
                 <Link to='/Features'>Features</Link>
                 <Link to='/AboutUs'>About Us</Link>
                 <Link to='/Features'>Features</Link>
-                <Link to='/AboutUs'>About Us</Link>
+                <Link to='/Login'>Login</Link>
             </div>
         </section>
     )
