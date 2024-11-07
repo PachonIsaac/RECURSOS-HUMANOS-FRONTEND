@@ -1,20 +1,21 @@
 import './App.css'
-import { Navbar } from './Components/Navbar/Navbar'
 import { Route, Routes} from 'react-router-dom'
 import { Landing } from './Views/Landing'
-import { Footer } from  './Components/Footer/Footer'
+import { Layout } from './Components/Layout/Layout'
 import Login from './Views/Login'
+import Dashboard from './Views/Dashboard'
 
 
 export function App() {
   return (
-    <div className='App'> 
-    <Navbar />
+    <div className='App'>
       <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/Login' element={<Login />} />
+        <Route element={<Layout />}>
+          <Route path='/' element={<Landing />} />
+        </Route>
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
-    <Footer />
     </div>
   )
 }
