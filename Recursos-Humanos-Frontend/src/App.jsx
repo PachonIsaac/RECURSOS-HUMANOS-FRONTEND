@@ -17,7 +17,7 @@ export function App() {
           </Route>
 
           <Route path={PublicRoutes.LOGIN} element={<Login />} />
-          <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
+          <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} />
         </RoutesWithNotFound>
 
       </BrowserRouter>
