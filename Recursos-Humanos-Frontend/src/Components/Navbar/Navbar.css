@@ -12,10 +12,10 @@
     left: 0;
     z-index: 1000;
     justify-content: space-between;
-    gap: 24px;
-    height: 100px;
-    padding-left: 60px;
-    padding-right: 60px;
+    gap: 16px;
+    height: 80px; 
+    padding-left: 30px; 
+    padding-right: 30px; 
 }
 
 .TitleIcono {
@@ -46,5 +46,10 @@
 .Options a {
     text-decoration: none;
     color: black;
-    font-size: 2vh; /* Tamaño de fuente de h2 */
-  }
+    font-size: 2vh;
+}
+
+.Options a.active {
+    border-bottom: 2px solid #FB9016; 
+    padding-bottom: 5px;
+}

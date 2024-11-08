@@ -33,7 +33,7 @@ const LoginForm = ({ handleLogin }) => {
   };
 
   const handleLogoClick = () => {
-    navigate('/landing');
+    navigate('/');
   };
 
   const togglePasswordVisibility = () => {
@@ -49,7 +49,7 @@ const LoginForm = ({ handleLogin }) => {
       <div className='wrapper'>
         <form onSubmit={handleSubmit}>
           
-          <img className="iconoLogin"src={IconHR} onClick={handleLogoClick} style={{cursor: 'pointer'}}/>
+          <img className="iconoLogin" src={IconHR} onClick={handleLogoClick} style={{cursor: 'pointer'}}/>
           <h1 className="bienvenida">Bienvenido a HRMinder</h1>
 
           <div className="input-box">
