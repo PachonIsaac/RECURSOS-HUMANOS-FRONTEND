@@ -11,7 +11,15 @@
 .Part1 {
     margin-left: 32px;
     display: flex;
-    
+    flex-wrap: nowrap;
+    justify-content:space-around;
+    align-items: center; 
+}
+
+.Part1 img {
+    max-width: 500px;
+    height: auto;
+    flex: 1 1 auto;
 }
 
 .Features {
@@ -21,7 +29,7 @@
 
 .FeaturesItems {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 16px;
 }
 
@@ -34,8 +42,3 @@ button.ButtonColor {
     margin: 0 auto;
 }
 
-#ManIlustration {
-    max-width: 500px;
-    object-fit: cover;
-    padding: 0 12px;
-}

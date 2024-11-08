@@ -14,7 +14,7 @@ export function Landing() {
             <div className="Part1"> 
                 <div id="TextPart1">
                     <h1> Optimiza la gestión de tu talento humano con eficiencia y sencillez</h1>
-                    <h3> Nunca había sido tan sencillo manejar  el personal de tu empresa </h3>
+                    <p> Nunca había sido tan sencillo manejar  el personal de tu empresa </p>
                     <button className="ButtonColor"> Contáctanos </button>
                 </div>
                 <img id="ManIlustration" src={ManThinking} />
@@ -22,7 +22,7 @@ export function Landing() {
             
             <div className="Features">
                 <h1> Descubre las funcionalidades clave<br /> de nuestra plataforma </h1>
-                <h4> Nuestro sistema de recursos humanos está diseñado para hacer tu trabajo más sencillo y eficiente </h4>
+                <p> Nuestro sistema de recursos humanos está diseñado para hacer tu trabajo más sencillo y eficiente </p>
                 <div className="FeaturesItems">
                     <FeatureItem itemIcon={IconBriefing} itemText="Gestión Centralizada de Personal" /> 
                     <FeatureItem itemIcon={IconOnlineInterview} itemText="Control de Asistencias" /> 
