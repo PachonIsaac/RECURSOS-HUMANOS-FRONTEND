@@ -51,3 +51,138 @@
 .search-button:active {
   background-color: #9c5c00;
 }
+
+.containerCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  
+  margin-top: 40px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.card {
+  width: 390px; 
+  border: 2px solid #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 5px;
+  margin: 0 auto; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: #ffb663;
+}
+
+.card-header {
+  display: flex;
+  padding: 16px;
+}
+
+.iconoHR {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin: 0;
+  text-align: left;
+}
+
+.card-company-container {
+  display: flex;
+  gap: 10px;
+}
+
+.card-company,
+.card-applicants {
+  font-size: 0.8em;
+  color: #666;
+  margin: 0;
+}
+
+.card-content {
+  font-size: 0.8em;
+  text-align: justify;
+  margin: 0px 20px;
+}
+
+.card-description {
+  font-size: 1em;
+  color: #666;
+}
+
+.card-tags {
+  margin-left: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-tag {
+  padding: 2px 10px;
+  border-radius: 5px;
+  font-size: 0.7em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+}
+
+.card-tag-remoto {
+  background-color: rgba(54, 162, 235, 0.2);
+  color: #2C86D0;
+  border-color: #36A2EB;
+}
+
+.card-tag-other {
+  background-color: rgba(75, 192, 192, 0.2);
+  color: #36A99E;
+  border-color: #4BC0C0;
+}
+
+.card-tag-other1 {
+  background-color: rgba(155, 89, 182, 0.2);
+  color: #8E44AD;
+  border-color: #9B59B6;
+}
+
+.linea-gris {
+  border-top: 1px solid #e5e5e5;
+  margin: 10px 18px;
+}
+
+.job-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.job-salary {
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #5d5d5d;
+}
+
+.job-time {
+  display: flex;
+  align-items: center;
+  font-size: 0.8em;
+  color: #666;
+}
+
+.clock-icon {
+  margin-right: 3px;
+  color: #878787;
+}

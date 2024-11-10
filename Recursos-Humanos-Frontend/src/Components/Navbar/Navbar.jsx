@@ -10,7 +10,7 @@ export function Navbar() {
             <img className="IconoHR" src={IconHR} />
             <h1>HRMinder</h1>
             <div className="Options">
-                <Link to='/Jobs' className={location.pathname === '/Jobs' ? 'active' : ''}>Jobs</Link>
+                <Link to='/Jobs' className={location.pathname === '/Jobs' ? 'active' : ''}>Trabajos</Link>
                 <Link to='/AboutUs' className={location.pathname === '/AboutUs' ? 'active' : ''}>About Us</Link>
                 <Link to='/Features' className={location.pathname === '/Features' ? 'active' : ''}>Features</Link>
                 <Link to='/Login' className={location.pathname === '/Login' ? 'active' : ''}>Login</Link>
