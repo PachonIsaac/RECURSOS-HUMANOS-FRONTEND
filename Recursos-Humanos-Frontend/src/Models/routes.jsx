@@ -2,7 +2,8 @@ export const PublicRoutes = {
     LOGIN: 'login',
     LANDING: 'landing',
     DASHBOARD: 'dashboard',
-    JOBS: 'jobs'
+    JOBS: 'jobs',
+    ABOUTUS: 'AboutUs'
 };
 
 export const PrivateRoutes = {
