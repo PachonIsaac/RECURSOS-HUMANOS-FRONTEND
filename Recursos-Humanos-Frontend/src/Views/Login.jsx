@@ -54,12 +54,12 @@ const LoginForm = ({ handleLogin }) => {
 
           <div className="input-box">
             <FaUser className='icon' />
-            <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
+            <input type="text" name="username" placeholder="Usuario" value={formData.username} onChange={handleChange} required />
           </div>
 
           <div className="input-box">
             <FaLock className='icon'/>
-            <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+            <input type={showPassword ? "text" : "password"} name="password" placeholder="Contraseña" value={formData.password} onChange={handleChange} required />
             <span className="toggle-password" onClick={togglePasswordVisibility}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>

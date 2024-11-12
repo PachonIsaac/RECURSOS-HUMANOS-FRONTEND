@@ -7,7 +7,7 @@
     margin-bottom: 20px;
   }
   
-  .mission, .vision, .about-us-features, .about-us-team {
+  .mission, .vision, .about-us-features {
     background-color: #f9f9f9;
     padding: 40px;
     border-radius: 8px;
@@ -22,6 +22,12 @@
     flex-wrap: wrap;
   }
   
+  .about-us-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .team-member {
     display: flex;
     flex-direction: column;
