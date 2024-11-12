@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../Components/Sidebar/Sidebar';
 import './Dashboard.css';
 
-
 const Dashboard = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
-        <div style={{ display: 'flex' }}>
-            <Sidebar />
-            <div style={{ padding: '20px', flex: 1 }}>
-                <h1>Dashboard</h1>
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '20px' }}>
-                    <div style={{ width: '30%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
+        <div className="dashboard-container">
+            <div className={`sidebar ${isSidebarOpen ? '' : 'closed'}`}>
+                <Sidebar />
+                <button onClick={toggleSidebar} className="toggle-btn">
+                    {isSidebarOpen ? '<' : '>'}
+                </button>
+            </div>
+            <div className={`dashboard-content ${isSidebarOpen ? '' : 'closed'}`}>
+                <h1 className="dashboard-header">Dashboard</h1>
+                <div className="dashboard-sections">
+                    <div className="dashboard-section">
                         <h2>Section 1</h2>
                         <p>Content for section 1</p>
                     </div>
-                    <div style={{ width: '30%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
+                    <div className="dashboard-section">
                         <h2>Section 2</h2>
                         <p>Content for section 2</p>
                     </div>
-                    <div style={{ width: '30%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
+                    <div className="dashboard-section">
                         <h2>Section 3</h2>
                         <p>Content for section 3</p>
                     </div>
