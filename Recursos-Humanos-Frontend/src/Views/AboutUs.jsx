@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="AboutUs">
       <header className="about-us-header">
-        <h1>About Us</h1>
+        <h1>Nosotros</h1>
         <p>
           Bienvenidos a HRMinder, una herramienta creada para
           optimizar la gestión del talento humano en tu empresa. Nuestro
@@ -17,19 +17,31 @@ const AboutUs = () => {
         <div className="mission">
           <h2>Nuestra Misión</h2>
           <p>
-            Simplificar y mejorar la administración de recursos humanos a través
-            de tecnología innovadora, creando soluciones que permitan a las
-            empresas gestionar de manera eficiente su talento y optimizar sus
-            procesos. Somos el puente entre las empresas y sus empleados.
+            Nuestra misión en HRMinder es consolidarnos como un referente en la
+            transformación digital de la gestión del talento humano. Nos enfocaremos
+            en desarrollar e implementar soluciones tecnológicas avanzadas que no
+            solo optimicen, sino que también imaginen los procesos de selección, 
+            evaluación, capacitación y permanencia del personal. 
+            <br /> <br />
+            Nuestro compromiso es asegurar que las empresas puedan alinearse más 
+            efectivamente con sus objetivos estratégicos, mejorando la satisfacción 
+            y el desarrollo profesional de sus empleados en un entorno empresarial 
+            en constante evolución.
           </p>
+
         </div>
     
         <div className="vision">
           <h2>Nuestra Visión</h2>
           <p>
-            Ser la plataforma líder en gestión de recursos humanos, reconocida
-            por su capacidad de transformar positivamente la forma en que las
-            empresas interactúan con su personal y optimizan sus operaciones.
+            Visualizamos en el 2029 a HRMinder como el líder indiscutible en el 
+            mercado de soluciones tecnológicas para la gestión del talento humano, 
+            reconocido por nuestra capacidad para innovar y adaptarnos a las 
+            demandas cambiantes del entorno empresarial global. Aspiramos a que 
+            nuestras herramientas no solo faciliten la automatización, sino que 
+            también impulsen una gestión del talento humano más estratégica y centrada 
+            en el desarrollo continuo de las capacidades de los empleados, contribuyendo 
+            significativamente al éxito sostenible de las organizaciones con las que colaboramos.
           </p>
         </div>
       
