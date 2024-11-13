@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IconHR from '../../Assets/Icons/IconHR.svg';
 import './Sidebar.css';
+
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h2>Dashboard</h2>
+        <img src={IconHR} alt='IconHR'/>
       </div>
       <ul className="sidebar-menu">
         <li>

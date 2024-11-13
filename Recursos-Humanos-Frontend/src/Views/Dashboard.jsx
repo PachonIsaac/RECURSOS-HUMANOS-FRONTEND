@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../Components/Sidebar/Sidebar';
 import IconBriefing from "../Assets/Icons/IconBriefing.svg";
 import IconDataManagement from "../Assets/Icons/IconDataManagement.svg";
+import './Dashboard.css';
 
 const Dashboard = () => {
   return (
