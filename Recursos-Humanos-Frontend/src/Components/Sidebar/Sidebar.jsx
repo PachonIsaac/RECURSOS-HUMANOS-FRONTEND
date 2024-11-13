@@ -4,6 +4,7 @@ import IconHR from '../../Assets/Icons/IconHR.svg';
 import { PublicRoutes } from '../../Models'
 import './Sidebar.css';
 
+
 const Sidebar = () => {
   return (
     <div className="sidebar">

@@ -20,7 +20,7 @@ export function App(){
          <Route element={<LandingLayout />}>
             <Route path='/' element={<Landing />} />
             <Route path={PublicRoutes.JOBS} element={<Jobs />} />
-            <Route path={PublicRoutes.ABOUTUS} element={<AboutUs />} />
+            <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
           </Route>
           <Route element={<DashboardLayout />}>
             <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} />
