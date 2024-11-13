@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
 import { Footer } from '../Footer/Footer';
-import './Layout.css';
+import './LandingLayout.css';
 
-export function Layout() {
+export function LandingLayout() {
   return (
     <div className="layout-container">
       <Navbar />
