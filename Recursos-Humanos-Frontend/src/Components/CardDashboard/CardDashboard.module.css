@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    width: 300px; 
+    border: 2px solid #e5e5e5;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffc37e 0%, #ff7b42 100%);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    padding: 5px;
+    margin: 16px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: #ffb663;
+  }
+  
+.card-title {
+    display: flex;
+    align-items: center;
+    padding: 32px;
+}
+
+.cardIcon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+    
+}
+
