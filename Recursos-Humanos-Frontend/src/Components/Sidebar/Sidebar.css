@@ -1,12 +1,5 @@
-
-
-
-
-/* Sidebar.css */
 .sidebar {
-  /* height: 100%; */
-  width: 250px;
-  /* background-color: ; */
+  width: 200px;
   color: #FB9016;
   transition: width 0.3s ease;
   overflow: hidden;
@@ -16,10 +9,9 @@
 
 .sidebar-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content:baseline;
   padding: 20px;
-  /* background-color: #FFB257; */
+
 }
 
 .sidebar-header h2 {
@@ -47,16 +39,8 @@
   background-color: #1abc9c;
 }
 
-.sidebar-menu li + li {
-  border-top: 1px solid #FFB257;
-}
-
 .sidebar-menu a {
-  color: #FB9016;
+  color: black;
   text-decoration: none;
   display: block;
-}
-
-.sidebar-menu a:hover {
-  color: #1abc9c;
 }

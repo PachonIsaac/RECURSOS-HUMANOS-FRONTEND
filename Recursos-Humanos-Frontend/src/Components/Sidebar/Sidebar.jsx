@@ -21,6 +21,7 @@ const Sidebar = () => {
         <li>
           <Link to={`/${PublicRoutes.DASHBOARD_PERSONAL}`}>Personal</Link>
         </li>
+        
       </ul>
     </div>
   );
