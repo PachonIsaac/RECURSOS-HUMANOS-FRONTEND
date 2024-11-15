@@ -1,41 +1,24 @@
-import React, { useState } from 'react';
-import Sidebar from '../Components/Sidebar/Sidebar';
-import './Dashboard.css';
+import React from 'react';
+import CardDashboard from '../Components/CardDashboard/CardDashboard';
+import { FaArrowsDownToPeople, FaPeopleGroup, FaIdCard } from "react-icons/fa6";
+import {PublicRoutes} from '../Models'
+import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-
-    return (
-        <div className="dashboard-container">
-            <div className={`sidebar ${isSidebarOpen ? '' : 'closed'}`}>
-                <Sidebar />
-                <button onClick={toggleSidebar} className="toggle-btn">
-                    {isSidebarOpen ? '<' : '>'}
-                </button>
-            </div>
-            <div className={`dashboard-content ${isSidebarOpen ? '' : 'closed'}`}>
-                <h1 className="dashboard-header">Dashboard</h1>
-                <div className="dashboard-sections">
-                    <div className="dashboard-section">
-                        <h2>Section 1</h2>
-                        <p>Content for section 1</p>
-                    </div>
-                    <div className="dashboard-section">
-                        <h2>Section 2</h2>
-                        <p>Content for section 2</p>
-                    </div>
-                    <div className="dashboard-section">
-                        <h2>Section 3</h2>
-                        <p>Content for section 3</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+  return (
+    <div className="dashboard">
+      <div className={styles.mainContent}>
+        <CardDashboard title='Postulaciones' IconComponent={FaArrowsDownToPeople} url={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}/>
+        <CardDashboard title='Personal' IconComponent={FaPeopleGroup} url={`/${PublicRoutes.DASHBOARD_PERSONAL}`}/>
+        <CardDashboard title='Postulaciones' IconComponent={FaArrowsDownToPeople} url={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}/>
+        <CardDashboard title='Personal' IconComponent={FaPeopleGroup} url={`/${PublicRoutes.DASHBOARD_PERSONAL}`}/>
+        <CardDashboard title='Postulaciones' IconComponent={FaArrowsDownToPeople} url={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}/>
+        <CardDashboard title='Personal' IconComponent={FaPeopleGroup} url={`/${PublicRoutes.DASHBOARD_PERSONAL}`}/>
+        {/* <CardDashboard title='Puestos de trabajo' IconComponent={FaIdCard} /> */}
+      </div>
+    </div>
+    
+  );
+}
 
 export default Dashboard;
