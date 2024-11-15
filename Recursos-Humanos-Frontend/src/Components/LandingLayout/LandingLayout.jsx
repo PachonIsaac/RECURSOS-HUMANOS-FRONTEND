@@ -5,7 +5,7 @@ import styles from './LandingLayout.module.css';
 
 export function LandingLayout() {
   return (
-    <div className={styles.layout-container}>
+    <div className={styles.layoutContainer}>
       <Navbar />
       <div className={styles.content}>
         <Outlet />
