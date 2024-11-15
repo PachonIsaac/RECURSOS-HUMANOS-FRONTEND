@@ -10,6 +10,7 @@ export default function Jobs() {
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 
+    
     return (
         <div className="jobs-container">
             <h1 className="titulo">Encuentra el trabajo de tus sueños</h1>
