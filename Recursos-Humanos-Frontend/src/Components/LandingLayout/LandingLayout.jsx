@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
 import { Footer } from '../Footer/Footer';
-import './LandingLayout.css';
+import styles from './LandingLayout.module.css';
 
 export function LandingLayout() {
   return (
-    <div className="layout-container">
+    <div className={styles.layout-container}>
       <Navbar />
-      <div className="content">
+      <div className={styles.content}>
         <Outlet />
       </div>
       <Footer />
