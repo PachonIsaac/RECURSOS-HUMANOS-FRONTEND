@@ -1,16 +1,24 @@
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .jobs-container {
   text-align: center;
   padding: 40px;
-  margin-top: -50px;
+  margin: 0 auto;
 }
 
-.titulo{
+.titulo {
   font-size: 40px;
   font-weight: bold;
   color: #333;
   margin-bottom: 30px;
 }
 
+/* Barra de búsqueda */
 .search-container {
   display: flex;
   justify-content: center;
@@ -52,26 +60,28 @@
   background-color: #9c5c00;
 }
 
+/* Tarjetas */
 .containerCards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  
-  margin-top: 40px;
-  margin-left: 25px;
-  margin-right: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive */
+  gap: 20px;
+  margin: 20px auto;
+  padding: 0 10px;
 }
 
 .card {
-  width: 390px; 
+  width: 100%;
+  max-width: 390px;
   border: 2px solid #e5e5e5;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, border-color 0.3s ease;
   padding: 5px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.05);
   border-color: #ffb663;
   cursor: pointer;
@@ -122,10 +132,11 @@
   color: #666;
 }
 
-.card-tags{
+.card-tags {
   margin-left: 20px;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* Responsive */
 }
 
 .card-tag {
@@ -186,4 +197,82 @@
 .clock-icon {
   margin-right: 3px;
   color: #878787;
+}
+
+/* Modal */
+.modal {
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background: white;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-tags-modal {
+  display: flex;
+  gap: 8px;
+}
+
+.linea-gris-modal {
+  border-top: 1px solid #e5e5e5;
+  margin: 10px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 28px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input,
+  .search-button {
+    width: 100%;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .iconoHR {
+    margin: 0 0 10px 0;
+  }
+
+  .job-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 24px;
+  }
+
+  .search-input {
+    font-size: 14px;
+  }
+
+  .card-title {
+    font-size: 1em;
+  }
+
+  .card-description {
+    font-size: 0.9em;
+  }
 }
