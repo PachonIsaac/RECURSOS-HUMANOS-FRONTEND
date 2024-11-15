@@ -1,5 +1,7 @@
 import React from "react";
 import "./AboutUs.css";
+import PerfilJanca from "../Assets/PerfilJanca.png";
+import PerfilCamila from "../Assets/PerfilCamila.png";
 
 const AboutUs = () => {
   return (
@@ -71,20 +73,23 @@ const AboutUs = () => {
         </p>
         <div className="team-members">
           <div className="team-member">
-            <h3>Jefferson David Arteaga Bedoya</h3>
+            <img src="https://scontent.fpei3-1.fna.fbcdn.net/v/t39.30808-6/277819229_3151576611770945_6136770228714174012_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VT25aPoEZP4Q7kNvgFUuRdf&_nc_zt=23&_nc_ht=scontent.fpei3-1.fna&_nc_gid=Agm6jHArrBvDoI6ySBG136v&oh=00_AYCPfbNOpOrgGi6ic56r7Za0zRQYNAPxCZ_azy67gwn1BQ&oe=67396E3B" alt="Jefferson David Arteaga Bedoya" />
+            <h3>Jefferson Arteaga</h3>
             <p>Programador Full Stack</p>
           </div>
           <div className="team-member">
-            <h3>Isaac Pachon Zuleta</h3>
+            <img src="https://scontent.fpei1-1.fna.fbcdn.net/v/t39.30808-6/453010538_8009505332428288_2585731053932279438_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=vhaGeAAI6lgQ7kNvgEk0ZXo&_nc_zt=23&_nc_ht=scontent.fpei1-1.fna&_nc_gid=AEoJk6gIOEs-AmlHN1VBQEU&oh=00_AYAI5SoC_BIMaZhcnkK-AAnOCv89vBZVgoFlgWiMmeMriA&oe=67396A71" alt="Isaac Pachon Zuleta" />
+            <h3>Isaac Pachon</h3>
             <p>Programador Full Stack</p>
           </div>
           <div className="team-member">
-            <img src="https://comunicaciones.utp.edu.co/wp-content/uploads/sites/2/WhatsApp-Image-2024-03-15-at-9.23.46-AM-1-577x1024.jpeg" alt="Camila Orozco Salazar" />
-            <h3>Camila Orozco Salazar</h3>
+            <img src={PerfilCamila} alt="Camila Orozco Salazar" />
+            <h3>Camila Orozco</h3>
             <p>Programadora Full Stack</p>
           </div>
           <div className="team-member">
-            <h3>Jancarlo Gallón Cano</h3>
+            <img src={PerfilJanca} />
+            <h3>Jancarlo Gallón</h3>
             <p>Programador Full Stack</p>
           </div>
         </div>
