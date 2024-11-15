@@ -15,10 +15,6 @@ button{
   transition: background-color 0.3s ease;
 }
 
-.App {
-  margin-top: 100px;
-}
-
 .ButtonColor {
   display: flex;
   align-items: center;

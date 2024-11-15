@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import IconHR from "../../Assets/Icons/IconHR.svg";
-import './Sidebar.css'; // Make sure to create a corresponding CSS file for styling
+import React from 'react';
+import { Link } from 'react-router-dom';
+import IconHR from '../../Assets/Icons/IconHR.svg';
+import { PublicRoutes } from '../../Models'
+import './Sidebar.css';
+
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
-
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
-    return (
-        <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-            <div className="sidebar-header">
-                <img src={IconHR} alt="HRMinder Logo" className="logo" />
-                <button onClick={toggleSidebar} className="toggle-btn">
-                    {isOpen ? '<' : '>'}
-                </button>
-            </div>
-            <ul className="sidebar-menu">
-                <li>Option 1</li>
-                <li>Option 2</li>
-                <li>Option 3</li>
-                <li>Option 4</li>
-            </ul>
-        </div>
-    );
+  return (
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <img src={IconHR} alt='IconHR'/>
+      </div>
+      <ul className="sidebar-menu">
+        <li>
+          <Link to={`/${PublicRoutes.DASHBOARD}`}>Menu</Link>
+        </li>
+        <li>
+          <Link to={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}>Postulaciones</Link>
+        </li>
+        <li>
+          <Link to={`/${PublicRoutes.DASHBOARD_PERSONAL}`}>Personal</Link>
+        </li>
+        
+      </ul>
+    </div>
+  );
 };
 
 export default Sidebar;
