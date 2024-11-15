@@ -93,7 +93,7 @@ const AboutUs = () => {
             <p>Programador Full Stack</p>
           </div>
         </div>
-
+        
       </section>
     </div>
   );

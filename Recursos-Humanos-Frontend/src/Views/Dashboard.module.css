@@ -1,0 +1,12 @@
+.dashboard {
+    display: grid;
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+.mainContent {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+  }
