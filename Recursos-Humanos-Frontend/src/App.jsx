@@ -24,7 +24,7 @@ export function App(){
           <Route element={<LandingLayout />}>
               <Route path={PublicRoutes.LANDING} element={<Landing />} />
               <Route path={PublicRoutes.JOBS} element={<Jobs />} />
-              <Route path='/apply/:jobId' element={<JobApplicationForm />} />
+              <Route path={PublicRoutes.APPLY} element={<JobApplicationForm />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
             </Route>
             <Route element={<DashboardLayout />}>
