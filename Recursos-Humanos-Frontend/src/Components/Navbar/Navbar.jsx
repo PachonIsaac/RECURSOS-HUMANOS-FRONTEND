@@ -1,5 +1,6 @@
 import IconHR from "../../Assets/Icons/IconHR.svg";
 import { Link, useLocation } from 'react-router-dom';
+import { PublicRoutes } from "../../Models";
 import "./Navbar.css";
 
 export function Navbar() {
@@ -7,14 +8,14 @@ export function Navbar() {
 
     return (
         <section className="Navbar">
-            <Link to='/' className="Logo">
+            <Link to={`/${PublicRoutes.LANDING}`} className="Logo">
                 <img className="IconoHR" src={IconHR} />
             </Link>
             <h1>HRMinder</h1>
             <div className="Options">
-                <Link to='/Jobs' className={location.pathname === '/Jobs' ? 'active' : ''}>Trabajos</Link>
-                <Link to='/AboutUs' className={location.pathname === '/AboutUs' ? 'active' : ''}>Nosotros</Link>
-                <Link to='/Login' className={location.pathname === '/Login' ? 'active' : ''}>Login</Link>
+                <Link to={`/${PublicRoutes.JOBS}`} className={location.pathname === '/Jobs' ? 'active' : ''}>Trabajos</Link>
+                <Link to={`/${PublicRoutes.ABOUT_US}`} className={location.pathname === '/AboutUs' ? 'active' : ''}>Nosotros</Link>
+                <Link to={`/${PublicRoutes.LOGIN}`} className={location.pathname === '/Login' ? 'active' : ''}>Login</Link>
             </div>
         </section>
     );

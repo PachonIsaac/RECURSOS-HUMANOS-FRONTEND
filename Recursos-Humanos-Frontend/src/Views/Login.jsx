@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-import { FaUser, FaLock } from 'react-icons/fa';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import './Login.css';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { PublicRoutes } from '../Models';
 import login from '../services/auth';
 import IconHR from "../Assets/Icons/IconHR.svg"
+import './Login.css';
 
 const LoginForm = ({ handleLogin }) => {
   const navigate = useNavigate();
@@ -32,7 +31,7 @@ const LoginForm = ({ handleLogin }) => {
   };
 
   const handleLogoClick = () => {
-    navigate('/');
+    navigate(`/ ${PublicRoutes.LANDING}`);
   };
 
   const togglePasswordVisibility = () => {

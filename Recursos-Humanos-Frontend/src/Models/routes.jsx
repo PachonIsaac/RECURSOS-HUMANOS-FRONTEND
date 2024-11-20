@@ -1,7 +1,7 @@
 export const PublicRoutes = {
-    LOGIN: 'login',
-    LANDING: 'landing',
-    JOBS: 'jobs',
+    LOGIN: 'Login',
+    LANDING: '',
+    JOBS: 'Jobs',
     ABOUT_US: 'AboutUs',
 
     DASHBOARD: 'dashboard',
