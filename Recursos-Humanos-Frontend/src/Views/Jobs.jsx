@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import JobCard from '../Components/JobCard/JobCard';
 import JobDetailsModal from '../Components/JobDetailsModal/JobDetailsModal';
+import { useNavigate } from 'react-router-dom';
 import { Typography, Box, TextField, InputAdornment, Container, CircularProgress } from '@mui/material';
 import { FaSearch } from 'react-icons/fa';
 
@@ -13,6 +14,7 @@ const Jobs = () => {
     const [filteredJobs, setFilteredJobs] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState(null);
+    const navigate = useNavigate();
 
   useEffect(() => {
     fetchJobs();
@@ -77,9 +79,7 @@ const Jobs = () => {
   };
 
   const handleApply = (jobId) => {
-    // Aquí irá la lógica para postularse cuando esté disponible el endpoint
-    console.log(`Postulación para el trabajo con ID: ${jobId}`);
-    handleCloseDetails();
+    navigate(`/apply/${jobId}`);
   };
 
   return (

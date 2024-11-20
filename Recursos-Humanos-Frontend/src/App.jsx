@@ -11,6 +11,7 @@ import AboutUs from './Views/AboutUs'
 import Dashboard from './Views/Dashboard'
 import DashboardPostulaciones from './Views/DashboardPostulaciones'
 import DashboardPersonal from './Views/DashboardPersonal'
+import JobApplicationForm from './Views/JobApplicationForm'
 import {RoutesWithNotFound} from './Utilities'
 import {PublicRoutes, PrivateRoutes} from './Models'
 
@@ -23,6 +24,7 @@ export function App(){
           <Route element={<LandingLayout />}>
               <Route path='/' element={<Landing />} />
               <Route path={PublicRoutes.JOBS} element={<Jobs />} />
+              <Route path='/apply/:jobId' element={<JobApplicationForm />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
             </Route>
             <Route element={<DashboardLayout />}>

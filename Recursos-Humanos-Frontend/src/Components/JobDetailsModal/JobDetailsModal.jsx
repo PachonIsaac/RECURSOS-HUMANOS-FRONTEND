@@ -1,15 +1,5 @@
 import React from 'react';
-import { 
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Typography,
-  Chip,
-  Button,
-  Box,
-  Grid
-} from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Typography, Chip, Button, Box, Grid } from '@mui/material';
 import { FaBuilding, FaMoneyBillWave, FaUsers } from 'react-icons/fa';
 
 // Componente del modal de detalles
@@ -24,7 +14,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
         fullWidth
       >
         <DialogTitle sx={{ pb: 1 }}>
-          <Typography variant="h5" fontWeight="bold">
+          <Typography variant="h3" fontWeight="bold">
             {job.title}
           </Typography>
         </DialogTitle>
@@ -33,7 +23,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
           <Box sx={{ py: 2 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
               <FaBuilding />
-              <Typography variant="h6">
+              <Typography variant="h3">
                 {job.company}
               </Typography>
             </Box>
