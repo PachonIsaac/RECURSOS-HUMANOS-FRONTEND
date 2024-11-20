@@ -23,9 +23,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
           <Box sx={{ py: 2 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
               <FaBuilding />
-              <Typography variant="h3">
-                {job.company}
-              </Typography>
+              <h3>{job.company}</h3>
             </Box>
   
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
@@ -41,9 +39,8 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
             <Typography variant="h6" gutterBottom>
               Descripción del puesto
             </Typography>
-            <Typography variant="body1" paragraph>
-              {job.description}
-            </Typography>
+            <p>{job.description}</p>
+            
   
             <Grid container spacing={3} sx={{ mt: 2 }}>
               <Grid item xs={6}>

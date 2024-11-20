@@ -11,7 +11,7 @@ const JobCard = ({ job, onOpenDetails }) => (
       }
     }}>
       <CardContent>
-        <Typography variant="h3" component="div" gutterBottom fontWeight="bold">
+        <Typography variant="h5" component="div" gutterBottom fontWeight="bold">
           {job.title}
         </Typography>
         
