@@ -89,8 +89,8 @@ const DashboardPersonal = () => {
                     <TableCell>{employee.rol}</TableCell>
                     <TableCell>{employee.hiring_date}</TableCell>
                     <TableCell>
-                      <IconButton color="secondary" >
-                        <MdPersonSearch onClick={() => handleViewDetails(employee.identification_document)}/>
+                      <IconButton color="secondary" onClick={() => handleViewDetails(employee.identification_document)} >
+                        <MdPersonSearch />
                       </IconButton>
                     </TableCell>
                   </TableRow>
