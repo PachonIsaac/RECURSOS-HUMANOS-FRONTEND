@@ -5,9 +5,11 @@ import {
   TablePagination, TextField
 } from '@mui/material';
 
+import employeesData from '../DatosPrueba/employees.json'
+
 
 const DashboardPersonal = () => {
-  const [characters, setCharacters] = useState([]);
+  const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [search, setSearch] = useState('');
@@ -15,8 +17,9 @@ const DashboardPersonal = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rickandmortyapi.com/api/character');
-        setCharacters(response.data.results);
+        // const response = await axios.get('https://rickandmortyapi.com/api/character');
+        const response = {data: employeesData}
+        setEmployees(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -38,12 +41,12 @@ const DashboardPersonal = () => {
     setSearch(event.target.value);
   };
 
-  const filteredCharacters = characters.filter((character) =>
-    character.name.toLowerCase().includes(search.toLowerCase()) ||
-    character.status.toLowerCase().includes(search.toLowerCase()) ||
-    character.gender.toLowerCase().includes(search.toLowerCase()) ||
-    character.origin.name.toLowerCase().includes(search.toLowerCase()) ||
-    character.location.name.toLowerCase().includes(search.toLowerCase())
+  const filteredEmployees = employees.filter((employee) =>
+    employee.first_name.toLowerCase().includes(search.toLowerCase()) ||
+    employee.second_name.toLowerCase().includes(search.toLowerCase()) ||
+    employee.first_surname.toLowerCase().includes(search.toLowerCase()) ||
+    employee.second_surname.toLowerCase().includes(search.toLowerCase()) ||
+    employee.rol.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -62,21 +65,21 @@ const DashboardPersonal = () => {
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow >
-                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016'}}>Nombre</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016'}}>Estado</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016'}}>Genero</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016'}}>Origen</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016'}}>Ubicación</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Documento</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Nombre</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Apellido</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Rol</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Fecha de Contratación</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {filteredCharacters.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((character) => (
-                  <TableRow key={character.id}>
-                    <TableCell>{character.name}</TableCell>
-                    <TableCell>{character.status}</TableCell>
-                    <TableCell>{character.gender}</TableCell>
-                    <TableCell>{character.origin.name}</TableCell>
-                    <TableCell>{character.location.name}</TableCell>
+                {filteredEmployees.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((employee) => (
+                  <TableRow key={employee.identification_document}>
+                    <TableCell>{employee.identification_document}</TableCell>
+                    <TableCell>{`${employee.first_name} ${employee.second_name}`}</TableCell>
+                    <TableCell>{`${employee.first_surname} ${employee.second_surname}`}</TableCell>
+                    <TableCell>{employee.rol}</TableCell>
+                    <TableCell>{employee.hiring_date}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -85,7 +88,7 @@ const DashboardPersonal = () => {
           <TablePagination
             rowsPerPageOptions={[10,25,50]}
             component="div"
-            count={characters.length}
+            count={filteredEmployees.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

@@ -18,7 +18,6 @@ const LoginForm = ({ handleLogin }) => {
     event.preventDefault();
     try {
       await login(formData.username, formData.password);
-      handleLogin();
       setLoggedIn(true);
     } catch (error) {
       setError(error.message);
