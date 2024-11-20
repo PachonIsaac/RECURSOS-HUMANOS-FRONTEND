@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
-  TablePagination, TextField
+  TablePagination, TextField, IconButton
 } from '@mui/material';
+import { MdPersonSearch } from "react-icons/md";
 
 import employeesData from '../DatosPrueba/employees.json'
 
@@ -13,6 +15,7 @@ const DashboardPersonal = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +42,10 @@ const DashboardPersonal = () => {
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
+  };
+
+  const handleViewDetails = (id) => {
+    navigate(`/dashboard/user/${id}`);
   };
 
   const filteredEmployees = employees.filter((employee) =>
@@ -70,6 +77,7 @@ const DashboardPersonal = () => {
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Apellido</TableCell>
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Rol</TableCell>
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Fecha de Contratación</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016', width: 50 }}>Opciones</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -80,6 +88,11 @@ const DashboardPersonal = () => {
                     <TableCell>{`${employee.first_surname} ${employee.second_surname}`}</TableCell>
                     <TableCell>{employee.rol}</TableCell>
                     <TableCell>{employee.hiring_date}</TableCell>
+                    <TableCell>
+                      <IconButton color="secondary" >
+                        <MdPersonSearch onClick={() => handleViewDetails(employee.identification_document)}/>
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

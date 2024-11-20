@@ -12,6 +12,7 @@ import Dashboard from './Views/Dashboard'
 import DashboardPostulaciones from './Views/DashboardPostulaciones'
 import DashboardPersonal from './Views/DashboardPersonal'
 import JobApplicationForm from './Views/JobApplicationForm'
+import UserDetails from './Views/UserDetails'
 import {RoutesWithNotFound} from './Utilities'
 import {PublicRoutes, PrivateRoutes} from './Models'
 
@@ -31,9 +32,11 @@ export function App(){
               <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} />
               <Route path={PublicRoutes.DASHBOARD_POSTULACIONES} element={<DashboardPostulaciones />} />
               <Route path={PublicRoutes.DASHBOARD_PERSONAL} element={<DashboardPersonal />} />
+              <Route path={PublicRoutes.DASHBOARD_USER} element={<UserDetails />} />
             </Route>
             <Route path={PublicRoutes.LOGIN} element={<Login />} />
             {/* <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} /> */}
+
           </RoutesWithNotFound>
         </BrowserRouter>
       </div>
