@@ -37,9 +37,9 @@ export function App(){
               <Route path={PublicRoutes.DASHBOARD_PERSONAL} element={<DashboardPersonal />} />
               <Route path={PublicRoutes.DASHBOARD_USER} element={<UserDetails />} />
               <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
-              <Route path={PublicRoutes.LOGIN} element={<Login />} />
             {/* <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} /> */}
             </Route>
+            <Route path={PublicRoutes.LOGIN} element={<Login />} />
           </RoutesWithNotFound>
         </BrowserRouter>
       </div>
