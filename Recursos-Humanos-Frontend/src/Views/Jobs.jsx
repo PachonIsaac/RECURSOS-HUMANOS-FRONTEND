@@ -4,6 +4,7 @@ import JobDetailsModal from '../components/jobDetailsModal/jobDetailsModal';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Box, TextField, InputAdornment, Container, CircularProgress } from '@mui/material';
 import { FaSearch, FaRegClock  } from 'react-icons/fa';
+import { listarVacantes } from '../services/vacancies';
 
 
 // Componente principal de Jobs
@@ -23,47 +24,21 @@ const Jobs = () => {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      // Simulación de llamada a API
-      const response = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            jobs: [
-              {
-                id: 1,
-                title: "Desarrollador Frontend",
-                company: "Tech Solutions",
-                applicants: 45,
-                tags: ["Remoto", "Tiempo completo"],
-                description: "Desarrollar y mantener aplicaciones web utilizando React y tecnologías modernas del frontend.",
-                salary: "$3.000.000",
-                posted: "Hace 2 días"
-              },
-              {
-                id: 2,
-                title: "Diseñador UX/UI",
-                company: "Creative Minds",
-                applicants: 20,
-                tags: ["Presencial", "Beneficios"],
-                description: "Diseñar interfaces de usuario atractivas y funcionales para aplicaciones web y móviles.",
-                salary: "$2.500.000",
-                posted: "Hace 5 días"
-              }
-            ]
-          });
-        }, 1000);
-      });
-      setJobs(response.jobs);
+      const response = await listarVacantes();
+      console.log('Trabajos:', response);
+      setJobs(response);
+      setFilteredJobs(response);
     } catch (error) {
-      console.error("Error fetching jobs:", error);
-    } finally {
-      setLoading(false);
-    }
+        console.error("Error fetching jobs:", error);
+      } finally {
+        setLoading(false);
+      }
   };
 
   useEffect(() => {
     setFilteredJobs(
       jobs.filter((job) =>
-        job.title.toLowerCase().includes(searchTerm.toLowerCase())
+        job.job.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
   }, [searchTerm, jobs]);
@@ -78,8 +53,8 @@ const Jobs = () => {
     setSelectedJob(null);
   };
 
-  const handleApply = (jobId) => {
-    navigate(`/apply/${jobId}`);
+  const handleApply = (job) => {
+    navigate(`/apply/${job.id}`, { state: { job } });
   };
 
   return (

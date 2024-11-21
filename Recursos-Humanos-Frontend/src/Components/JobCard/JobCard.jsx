@@ -12,7 +12,7 @@ const JobCard = ({ job, onOpenDetails }) => (
     }}>
       <CardContent>
         <Typography variant="h5" component="div" gutterBottom fontWeight="bold">
-          {job.title}
+          {job.job}
         </Typography>
         
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
@@ -23,38 +23,16 @@ const JobCard = ({ job, onOpenDetails }) => (
         </Box>
   
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
-          {job.tags.map((tag, index) => (
-            <Chip
-              key={index}
-              label={tag}
-              variant="outlined"
-              size="small"
-            />
-          ))}
+          <Chip
+            label={job.city}
+            variant="outlined"
+            size="small"
+          />
         </Box>
   
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           {job.description}
         </Typography>
-  
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <FaUsers />
-              <Typography variant="body2" color="text.secondary">
-                {job.applicants} aplicantes
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={6}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <FaClock />
-              <Typography variant="body2" color="text.secondary">
-                {job.posted}
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
       </CardContent>
   
       <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2 }}>

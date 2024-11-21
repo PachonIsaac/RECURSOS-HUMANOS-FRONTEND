@@ -6,12 +6,16 @@ const ENDPOINT_URL = `${API_URL}/vacantes`;
 export const listarVacantes = async () => {
     try {
         const response = await axios.get(`${ENDPOINT_URL}/listar-vacantes`);
-        return response.data;
+        if (response && response.data) {
+            return response.data;
+        } else {
+            throw new Error("Respuesta inesperada del servidor");
+        }
     } catch (error) {
         console.error("Error obteniendo las vacantes:", error);
         throw error;
     }
-    }
+};
 
 export const listarTrabajos = async () => {
     try {
@@ -21,9 +25,9 @@ export const listarTrabajos = async () => {
         console.error("Error obteniendo los trabajos:", error);
         throw error;
     }
-    }
+};
 
-    //Listar aspirantes con el offer_id
+    
 export const listarAspirantes = async (offer_id) => {
     try {
         const response = await axios.get(`${ENDPOINT_URL}/listar-aspirantes/${offer_id}`);
@@ -32,5 +36,5 @@ export const listarAspirantes = async (offer_id) => {
         console.error("Error obteniendo los aspirantes:", error);
         throw error;
     }
-    }
+};
 

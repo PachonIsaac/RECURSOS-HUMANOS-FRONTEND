@@ -1,4 +1,4 @@
-export const API_URL = 'https://ssnbt34f-3000.brs.devtunnels.ms/api';
+export const API_URL = 'https://89nnm345-4000.use2.devtunnels.ms';
 
 export const PublicRoutes = {
 

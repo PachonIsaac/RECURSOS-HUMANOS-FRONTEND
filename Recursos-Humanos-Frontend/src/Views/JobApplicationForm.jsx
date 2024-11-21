@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { Typography, TextField, Button, Grid,  Container, MenuItem, FormHelperText } from '@mui/material';
 import { guardarInfoPersonal, guardarInscripcion, getTiposDocumento, getTiposSangre } from '../services/recruitment';
 
 
 const JobApplicationForm = () => {
-  const { jobId } = useParams();
+  const location = useLocation();
+  const { job } = location.state || {};
   const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       identification_document: '',
@@ -34,7 +35,8 @@ const JobApplicationForm = () => {
     const fetchDocumentBloodTypes = async () => {
       try {
         const tiposDocumento = await getTiposDocumento();
-        const tiposSangre = await getTiposSangre();
+        const tiposSangre = [{ id: 1, name: 'A+' }];
+        // const tiposSangre = await getTiposSangre();
         setTiposDocumento(tiposDocumento);
         setTiposSangre(tiposSangre);
       } catch (error) {

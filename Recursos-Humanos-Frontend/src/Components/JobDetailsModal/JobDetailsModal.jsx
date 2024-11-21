@@ -15,7 +15,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
       >
         <DialogTitle sx={{ pb: 1 }}>
           <Typography variant="h3" fontWeight="bold">
-            {job.title}
+            {job.job}
           </Typography>
         </DialogTitle>
   
@@ -26,15 +26,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
               <h3>{job.company}</h3>
             </Box>
   
-            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
-              {job.tags.map((tag, index) => (
-                <Chip
-                  key={index}
-                  label={tag}
-                  variant="outlined"
-                />
-              ))}
-            </Box>
+            
   
             <Typography variant="h6" gutterBottom>
               Descripción del puesto
@@ -51,14 +43,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={6}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <FaUsers />
-                  <Typography>
-                    {job.applicants} aplicantes
-                  </Typography>
-                </Box>
-              </Grid>
+              
             </Grid>
           </Box>
         </DialogContent>
@@ -68,7 +53,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
             Cerrar
           </Button>
           <Button sx={{ backgroundColor: '#FB9016' }}
-            onClick={() => onApply(job.id)} 
+            onClick={() => onApply(job)} 
             variant="contained"
             color="primary"
           >
