@@ -40,7 +40,7 @@ export function App(){
               <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
               <Route path={PublicRoutes.LOGIN} element={<Login />} />
             {/* <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} /> */}
-
+            </Route>
           </RoutesWithNotFound>
         </BrowserRouter>
       </div>
