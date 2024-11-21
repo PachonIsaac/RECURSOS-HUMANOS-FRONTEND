@@ -69,9 +69,12 @@ const JobApplicationForm = () => {
       // Guardar la inscripción a la oferta de trabajo con el persons.Id y jobId
       await guardarInscripcion({
         person_id: personId,
-        offer_id: jobId
+        offer_id: jobId,
         period : '2022-1'
-      })
+      });
+      console.log('Inscripción exitosa');
+    } catch (error) {
+      console.error('Error en la inscripción:', error);
     }
   };
 
@@ -98,7 +101,7 @@ const JobApplicationForm = () => {
                   error={!!errors.identification_type_id}
                   helperText={errors.identification_type_id?.message}
                 >
-                  {IDENTIFICATION_TYPES.map((type) => (
+                  {tiposDocumento.map((type) => (
                     <MenuItem key={type.id} value={type.id}>
                       {type.name}
                     </MenuItem>
@@ -313,7 +316,7 @@ const JobApplicationForm = () => {
                   error={!!errors.blood_type_id}
                   helperText={errors.blood_type_id?.message}
                 >
-                  {BLOOD_TYPES.map((type) => (
+                  {tiposSangre.map((type) => (
                     <MenuItem key={type.id} value={type.id}>
                       {type.name}
                     </MenuItem>
