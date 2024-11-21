@@ -1,0 +1,33 @@
+[
+    {
+      "identification_document": "123456789",
+      "first_name": "John",
+      "second_name": "Doe",
+      "first_surname": "Smith",
+      "second_surname": "Johnson",
+      "rol": "Developer",
+      "hiring_date": "2020-01-15",
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "identification_document": "987654321",
+      "first_name": "Jane",
+      "second_name": "Doe",
+      "first_surname": "Brown",
+      "second_surname": "Williams",
+      "rol": "Manager",
+      "hiring_date": "2019-03-22"
+    },
+    {
+        "identification_document": "1234",
+        "first_name": "Admin",
+        "second_name": "Admin",
+        "first_surname": "Admin",
+        "second_surname": "Admin",
+        "rol": "admin",
+        "hiring_date": "2020-01-15",
+        "username": "admin",
+        "password": "admin"
+    }
+  ]

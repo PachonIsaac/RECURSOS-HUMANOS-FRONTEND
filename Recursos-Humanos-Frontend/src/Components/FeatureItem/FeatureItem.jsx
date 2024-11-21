@@ -6,7 +6,7 @@ export function FeatureItem ({itemIcon, itemText}) {
             <img
             className="FeatureIcon" 
             src={itemIcon} />
-            <h4> {itemText} </h4>
+            <h3> {itemText} </h3>
         </article>
 
     )
