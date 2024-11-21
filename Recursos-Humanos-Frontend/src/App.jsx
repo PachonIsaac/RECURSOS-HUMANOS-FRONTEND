@@ -2,21 +2,21 @@ import './app.css'
 import { BrowserRouter, Route} from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
-import { Landing } from './Views/Landing'
-import { LandingLayout } from './Components/LandingLayout/LandingLayout'
-import { DashboardLayout } from './Components/DashboardLayout/DashboardLayout'
-import Login from './Views/Login'
-import Jobs from './Views/Jobs'
-import AboutUs from './Views/AboutUs'
-import Dashboard from './Views/Dashboard'
-import JobApplicationForm from './Views/JobApplicationForm'
-import UserDetails from './Views/UserDetails'
-import DashboardPostulaciones from './Views/dashboardPostulaciones'
-import DashboardPersonal from './Views/DashboardPersonal'
-import Colaborador from './Views/Colaborador'
+import { Landing } from './views/landing'
+import { LandingLayout } from './components/landingLayout/landingLayout'
+import { DashboardLayout } from './components/dashboardLayout/dashboardLayout'
+import Login from './views/loginForm'
+import Jobs from './views/jobs'
+import AboutUs from './views/aboutUs'
+import Dashboard from './views/dashboard'
+import JobApplicationForm from './views/jobApplicationForm'
+import UserDetails from './views/userDetails'
+import DashboardPostulaciones from './views/dashboardPostulaciones'
+import DashboardPersonal from './views/dashboardPersonal'
+import Colaborador from './views/colaborador'
 
 import {RoutesWithNotFound} from './Utilities'
-import {PublicRoutes, PrivateRoutes} from './Models'
+import {PublicRoutes, PrivateRoutes} from './models'
 
 export function App(){
   return (
@@ -27,7 +27,6 @@ export function App(){
 
           <Route element={<LandingLayout />}>
               <Route path={PublicRoutes.LANDING} element={<Landing />} />
-
               <Route path={PublicRoutes.JOBS} element={<Jobs />} />
               <Route path={PublicRoutes.APPLY} element={<JobApplicationForm />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />

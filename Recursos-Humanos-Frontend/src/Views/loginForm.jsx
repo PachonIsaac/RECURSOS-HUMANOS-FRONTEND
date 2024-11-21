@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { PublicRoutes } from '../Models';
-import login from '../services/auth';
-import IconHR from "../Assets/Icons/IconHR.svg"
+import { PublicRoutes } from '../models';
+import { auth } from '../services/auth';
+import IconHR from "../assets/icons/iconHR.svg"
 import './login.css';
 
 const LoginForm = ({ handleLogin }) => {
@@ -16,7 +16,7 @@ const LoginForm = ({ handleLogin }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await login(formData.username, formData.password);
+      await auth(formData.username, formData.password);
       setLoggedIn(true);
     } catch (error) {
       setError(error.message);

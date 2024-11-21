@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '../Navbar/navbar';
-import { Footer } from '../Footer/Footer';
+import { Navbar } from '../navbar/navbar';
+import { Footer } from '../footer/footer';
 import styles from './landingLayout.module.css';
 
 export function LandingLayout() {

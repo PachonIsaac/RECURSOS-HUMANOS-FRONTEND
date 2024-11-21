@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import JobCard from '../Components/JobCard/JobCard';
-import JobDetailsModal from '../Components/JobDetailsModal/JobDetailsModal';
+import JobCard from '../components/jobCard/jobCard';
+import JobDetailsModal from '../components/jobDetailsModal/jobDetailsModal';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Box, TextField, InputAdornment, Container, CircularProgress } from '@mui/material';
 import { FaSearch, FaRegClock  } from 'react-icons/fa';
-import IconHR from "../Assets/Icons/IconHR.svg";
-
 
 
 // Componente principal de Jobs

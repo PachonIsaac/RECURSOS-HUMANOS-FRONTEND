@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { MdPersonSearch } from "react-icons/md";
 
-import employeesData from '../DatosPrueba/employees.json'
+import employeesData from '../datosPrueba/employees.json'
 
 
 const DashboardPersonal = () => {
