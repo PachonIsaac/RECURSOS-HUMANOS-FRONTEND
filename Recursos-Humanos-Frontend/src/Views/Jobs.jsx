@@ -1,145 +1,142 @@
-import './jobs.css';
-import './modal.css';
-import React, { useState } from 'react';
-import { FaRegClock } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import JobCard from '../Components/JobCard/JobCard';
+import JobDetailsModal from '../Components/JobDetailsModal/JobDetailsModal';
+import { useNavigate } from 'react-router-dom';
+import { Typography, Box, TextField, InputAdornment, Container, CircularProgress } from '@mui/material';
+import { FaSearch, FaRegClock  } from 'react-icons/fa';
 import IconHR from "../Assets/Icons/IconHR.svg";
 
-export default function Jobs() {
-    const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
 
-    
-    return (
-        <div className="jobs-container">
-            <h1 className="titulo">Encuentra el trabajo de tus sueños</h1>
-            <div className="search-container">
-                <input type="text" placeholder="Buscar..." className="search-input"/>
-                <button className="search-button">Buscar</button>
-            </div>
-            <div className="containerCards">
-                <div className="card" onClick={openModal}>
-                    <div className="card-header">
-                        <img className="iconoHR" src={IconHR} />
-                        <div className="card-info">
-                        <h3 className="card-title">Título del trabajo</h3>
-                        <div className="card-company-container">
-                            <p className="card-company">Nombre de la empresa</p>
-                            <p className="card-applicants">30 aplicantes</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div className="card-tags">
-                        <span className="card-tag card-tag-remoto">Remoto</span>
-                        <span className="card-tag card-tag-other">Beneficios</span>
-                        <span className="card-tag card-tag-other1">Beneficios</span>
-                    </div>
-                    <div className="card-content">
-                        <p className="card-description">Trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo </p>
-                    </div> 
-                    <div class="linea-gris"></div>
-                    <div className="job-row">
-                        <div className="job-salary">$2.800.000</div>
-                        <div className="job-time">
-                            <FaRegClock className="clock-icon" />
-                            <span>Posteado hace 3 días</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-header">
-                        <img className="iconoHR" src={IconHR} />
-                        <div className="card-info">
-                        <h3 className="card-title">Título del trabajo</h3>
-                        <div className="card-company-container">
-                            <p className="card-company">Nombre de la empresa</p>
-                            <p className="card-applicants">30 aplicantes</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div className="card-tags">
-                        <span className="card-tag card-tag-remoto">Remoto</span>
-                        <span className="card-tag card-tag-other">Beneficios</span>
-                        <span className="card-tag card-tag-other1">Beneficios</span>
-                    </div>
-                    <div className="card-content">
-                        <p className="card-description">Trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo </p>
-                    </div> 
-                    <div class="linea-gris"></div>
-                    <div className="job-row">
-                        <div className="job-salary">$2.800.000</div>
-                        <div className="job-time">
-                            <FaRegClock className="clock-icon" />
-                            <span>Posteado hace 3 días</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-header">
-                        <img className="iconoHR" src={IconHR} />
-                        <div className="card-info">
-                        <h3 className="card-title">Título del trabajo</h3>
-                        <div className="card-company-container">
-                            <p className="card-company">Nombre de la empresa</p>
-                            <p className="card-applicants">30 aplicantes</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div className="card-tags">
-                        <span className="card-tag card-tag-remoto">Remoto</span>
-                        <span className="card-tag card-tag-other">Beneficios</span>
-                        <span className="card-tag card-tag-other1">Beneficios</span>
-                    </div>
-                    <div className="card-content">
-                        <p className="card-description">Trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo, trabajo, trabajo, mucho trabajo </p>
-                    </div> 
-                    <div class="linea-gris"></div>
-                    <div className="job-row">
-                        <div className="job-salary">$2.800.000</div>
-                        <div className="job-time">
-                            <FaRegClock className="clock-icon" />
-                            <span>Posteado hace 3 días</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                {isOpen && (
-                    <div className="modal-overlay">
-                    <div className="modal">
-                        <div className="modal-header">
-                            <h2>Título del trabajo</h2>
-                            <div className="card-tags-modal">
-                                <span className="card-tag card-tag-remoto">Remoto</span>
-                                <span className="card-tag card-tag-other">Beneficios</span>
-                                <span className="card-tag card-tag-other1">Beneficios</span>
-                            </div>
-                            <button onClick={closeModal} className="close-btn">&times;</button> 
-                        </div>
-                        <div class="linea-gris-modal"></div>
-                        <div className="modal-body">
-                            <h3>Rol</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus quibusdam et cupiditate, possimus hic! Ipsa veritatis vero odio nihil magni nesciunt illo cum exercitationem numquam vitae alias, rem nam.</p>
-                            <h3>Responsabilidades</h3>
-                            <ul>
-                                <li>oo</li>
-                                <li>oo</li>
-                                <li>oo</li>
-                                <li>oo</li>
-                            </ul>
-                            <h3>Habilidades</h3>
-                            <ul>
-                                <li>oo</li>
-                                <li>oo</li>
-                                <li>oo</li>
-                                <li>oo</li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-                )}
-            </div>
-        </div>
-    )
-}
+// Componente principal de Jobs
+const Jobs = () => {
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredJobs, setFilteredJobs] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedJob, setSelectedJob] = useState(null);
+    const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const fetchJobs = async () => {
+    setLoading(true);
+    try {
+      // Simulación de llamada a API
+      const response = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            jobs: [
+              {
+                id: 1,
+                title: "Desarrollador Frontend",
+                company: "Tech Solutions",
+                applicants: 45,
+                tags: ["Remoto", "Tiempo completo"],
+                description: "Desarrollar y mantener aplicaciones web utilizando React y tecnologías modernas del frontend.",
+                salary: "$3.000.000",
+                posted: "Hace 2 días"
+              },
+              {
+                id: 2,
+                title: "Diseñador UX/UI",
+                company: "Creative Minds",
+                applicants: 20,
+                tags: ["Presencial", "Beneficios"],
+                description: "Diseñar interfaces de usuario atractivas y funcionales para aplicaciones web y móviles.",
+                salary: "$2.500.000",
+                posted: "Hace 5 días"
+              }
+            ]
+          });
+        }, 1000);
+      });
+      setJobs(response.jobs);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    setFilteredJobs(
+      jobs.filter((job) =>
+        job.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [searchTerm, jobs]);
+
+  const handleOpenDetails = (job) => {
+    setSelectedJob(job);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseDetails = () => {
+    setIsModalOpen(false);
+    setSelectedJob(null);
+  };
+
+  const handleApply = (jobId) => {
+    navigate(`/apply/${jobId}`);
+  };
+
+  return (
+    <Container maxWidth="md" sx={{ py: 8 }}>
+      <Typography 
+        variant="h3" 
+        component="h1" 
+        align="center" 
+        gutterBottom
+        fontWeight="bold"
+      >
+        Encuentra el trabajo de tus sueños
+      </Typography>
+
+      <Box sx={{ mb: 4 }}>
+        <TextField
+          fullWidth
+          placeholder="Buscar trabajos..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <FaSearch />
+              </InputAdornment>
+            ),
+          }}
+          sx={{ maxWidth: '100%' }}
+        />
+      </Box>
+
+      {loading ? (
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        <Box>
+          {filteredJobs.map((job) => (
+            <JobCard
+              key={job.id}
+              job={job}
+              onOpenDetails={handleOpenDetails}
+            />
+          ))}
+        </Box>
+      )}
+
+      <JobDetailsModal
+        isOpen={isModalOpen}
+        job={selectedJob}
+        onClose={handleCloseDetails}
+        onApply={handleApply}
+      />
+    </Container>
+  );
+};
+
+export default Jobs;
