@@ -1,4 +1,4 @@
-import './App.css'
+import './app.css'
 import { BrowserRouter, Route} from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
@@ -9,10 +9,12 @@ import Login from './Views/Login'
 import Jobs from './Views/Jobs'
 import AboutUs from './Views/AboutUs'
 import Dashboard from './Views/Dashboard'
-import DashboardPostulaciones from './Views/DashboardPostulaciones'
-import DashboardPersonal from './Views/DashboardPersonal'
 import JobApplicationForm from './Views/JobApplicationForm'
 import UserDetails from './Views/UserDetails'
+import DashboardPostulaciones from './Views/dashboardPostulaciones'
+import DashboardPersonal from './Views/dashboardPersonal'
+import Colaborador from './Views/Colaborador'
+
 import {RoutesWithNotFound} from './Utilities'
 import {PublicRoutes, PrivateRoutes} from './Models'
 
@@ -22,8 +24,10 @@ export function App(){
       <div className='App'>
         <BrowserRouter>
           <RoutesWithNotFound>
+
           <Route element={<LandingLayout />}>
               <Route path={PublicRoutes.LANDING} element={<Landing />} />
+
               <Route path={PublicRoutes.JOBS} element={<Jobs />} />
               <Route path={PublicRoutes.APPLY} element={<JobApplicationForm />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
@@ -33,8 +37,8 @@ export function App(){
               <Route path={PublicRoutes.DASHBOARD_POSTULACIONES} element={<DashboardPostulaciones />} />
               <Route path={PublicRoutes.DASHBOARD_PERSONAL} element={<DashboardPersonal />} />
               <Route path={PublicRoutes.DASHBOARD_USER} element={<UserDetails />} />
-            </Route>
-            <Route path={PublicRoutes.LOGIN} element={<Login />} />
+              <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
+              <Route path={PublicRoutes.LOGIN} element={<Login />} />
             {/* <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} /> */}
 
           </RoutesWithNotFound>

@@ -4,7 +4,7 @@ import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { PublicRoutes } from '../Models';
 import login from '../services/auth';
 import IconHR from "../Assets/Icons/IconHR.svg"
-import './Login.css';
+import './login.css';
 
 const LoginForm = ({ handleLogin }) => {
   const navigate = useNavigate();

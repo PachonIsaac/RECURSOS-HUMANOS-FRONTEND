@@ -1,4 +1,4 @@
-import "./Landing.css" 
+import "./landing.css" 
 import ManThinking from "../Assets/ManThinking.svg"
 import { FeatureItem } from "../Components/FeatureItem/FeatureItem"
 import IconBriefing from "../Assets/Icons/IconBriefing.svg"

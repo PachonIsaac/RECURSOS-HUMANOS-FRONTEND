@@ -1,9 +1,9 @@
 import React from 'react';
-import CardDashboard from '../Components/CardDashboard/CardDashboard';
+import CardDashboard from '../Components/cardDashboard/cardDashboard';
 import { FaPeopleGroup, FaIdCard } from "react-icons/fa6";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import {PublicRoutes} from '../Models'
-import styles from './Dashboard.module.css';
+import styles from './dashboard.module.css';
 
 const Dashboard = () => {
   return (
