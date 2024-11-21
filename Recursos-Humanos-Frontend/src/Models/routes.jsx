@@ -4,7 +4,7 @@ export const PublicRoutes = {
 
     APPLY: 'apply/:jobId',
     LOGIN: 'login',
-    LANDING: 'landing',
+    LANDING: '',
     JOBS: 'jobs',
     ABOUT_US: 'aboutUs',
 

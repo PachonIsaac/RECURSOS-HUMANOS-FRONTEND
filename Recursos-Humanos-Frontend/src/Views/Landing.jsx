@@ -1,11 +1,11 @@
 import "./landing.css" 
-import ManThinking from "../Assets/ManThinking.svg"
-import { FeatureItem } from "../Components/FeatureItem/FeatureItem"
-import IconBriefing from "../Assets/Icons/IconBriefing.svg"
-import IconBenefits from "../Assets/Icons/IconBenefits.svg"
-import IconDataManagement from "../Assets/Icons/IconDataManagement.svg"
-import IconOnlineInterview from "../Assets/Icons/IconOnlineInterview.svg"
-import IconReport from "../Assets/Icons/IconReport.svg"
+import ManThinking from "../assets/manThinking.svg"
+import { FeatureItem } from "../components/featureItem/featureItem"
+import IconBriefing from "../assets/icons/iconBriefing.svg"
+import IconBenefits from "../assets/icons/iconBenefits.svg"
+import IconDataManagement from "../assets/icons/iconDataManagement.svg"
+import IconOnlineInterview from "../assets/icons/iconOnlineInterview.svg"
+import IconReport from "../assets/icons/iconReport.svg"
 
 export function Landing() {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import IconHR from '../../Assets/Icons/IconHR.svg';
-import { PublicRoutes } from '../../Models'
+import IconHR from '../../assets/icons/iconHR.svg';
+import { PublicRoutes } from '../../models'
 import './sidebar.css';
 
 

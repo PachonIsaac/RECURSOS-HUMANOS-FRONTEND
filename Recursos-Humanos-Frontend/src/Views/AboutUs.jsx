@@ -1,7 +1,7 @@
 import React from "react";
 import "./aboutUs.css";
-import PerfilJanca from "../Assets/PerfilJanca.png";
-import PerfilCamila from "../Assets/PerfilCamila.jpg";
+import PerfilJanca from "../assets/perfilJanca.png";
+import PerfilCamila from "../assets/perfilCamila.jpg";
 
 const AboutUs = () => {
   return (

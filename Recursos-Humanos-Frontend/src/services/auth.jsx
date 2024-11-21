@@ -1,30 +1,19 @@
 import axios from 'axios';
-import { API_URL } from '../Models/routes';
+import { API_URL } from '../models';
 
-const login = async (username, password) => {
-  const endpoint_url = `${API_URL}/auth/iniciar-sesion`;
-   try {
+const ENDPOINT_URL = `${API_URL}/auth`;
 
-     const data = {
-       username: username,
-       password: password
-     };
-     const response = await axios.post({endpoint_url}, data, {
-       headers: {
-         'Content-Type': 'application/json'
-       }
-     });
-     const token = response.data.access_token;
-     localStorage.setItem('token', token);
-     console.log('Inicio de sesión exitoso:', token);
-     console.log('Inicio de sesión exitoso:', response.data);
-     return token;
-
-   } catch (error) {
-     console.error('Error de inicio de sesión:', error);
-     console.log('Error de inicio de sesión:', error);
-     throw error;
-   }
- };
-
-export default login;
+export const auth = async (username, password) => {
+  try {
+    const response = await axios.post(`${ENDPOINT_URL}/iniciar-sesion`, { username, password }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log('Inicio de sesión exitoso:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error de autenticación:', error);
+    throw error;
+  }
+};

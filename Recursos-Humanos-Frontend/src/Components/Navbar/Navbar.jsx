@@ -1,6 +1,6 @@
-import IconHR from "../../Assets/Icons/IconHR.svg";
+import IconHR from "../../assets/icons/iconHR.svg";
 import { Link, useLocation } from 'react-router-dom';
-import { PublicRoutes } from "../../Models";
+import { PublicRoutes } from "../../models";
 import "./navbar.css";
 
 export function Navbar() {

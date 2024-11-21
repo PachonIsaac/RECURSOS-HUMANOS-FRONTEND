@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '../Models/routes';
+import { API_URL } from '../models';
 
 const ENDPOINT_URL = `${API_URL}/contratacion`;
 
@@ -15,7 +15,7 @@ export const guardarInfoPersonal = async (data) => {
       console.error('Error guardando la información personal:', error);
       throw error;
     }
-  };
+  }
 
   export const guardarInscripcion = async (data) => {
     try {
@@ -29,7 +29,7 @@ export const guardarInfoPersonal = async (data) => {
       console.error('Error guardando la inscripción:', error);
       throw error;
     }
-  };
+  }
 
   export const getTiposDocumento = async () => {
     try {
