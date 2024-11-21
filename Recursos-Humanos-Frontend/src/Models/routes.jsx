@@ -1,3 +1,5 @@
+export const API_URL = 'https://ssnbt34f-3000.brs.devtunnels.ms/api';
+
 export const PublicRoutes = {
     LOGIN: 'Login',
     LANDING: '',

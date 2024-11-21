@@ -2,33 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { Typography, TextField, Button, Grid,  Container, MenuItem, FormHelperText } from '@mui/material';
+import { guardarInfoPersonal, guardarInscripcion, getTiposDocumento, getTiposSangre } from '../services/recruitment';
 
-// Datos mock - En producción, estos vendrían del backend
-const IDENTIFICATION_TYPES = [
-  { id: 1, name: 'Cédula de Ciudadanía' },
-  { id: 2, name: 'Pasaporte' },
-  { id: 3, name: 'Cédula Extranjera' }
-];
-
-const BLOOD_TYPES = [
-  { id: 1, name: 'A+' },
-  { id: 2, name: 'A-' },
-  { id: 3, name: 'B+' },
-  { id: 4, name: 'B-' },
-  { id: 5, name: 'O+' },
-  { id: 6, name: 'O-' },
-  { id: 7, name: 'AB+' },
-  { id: 8, name: 'AB-' }
-];
 
 const JobApplicationForm = () => {
   const { jobId } = useParams();
-  const { 
-    control, 
-    handleSubmit, 
-    formState: { errors }, 
-    watch 
-  } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       identification_document: '',
       identification_type_id: '',
@@ -48,17 +27,55 @@ const JobApplicationForm = () => {
     }
   });
 
-  const onSubmit = (data) => {
-    // Añadir el jobId a los datos de la aplicación
-    const applicationData = {
-      ...data,
-      job_id: jobId,
-      birth_date: new Date(data.birth_date)
-    };
+  const [tiposDocumento, setTiposDocumento] = useState([]);
+  const [tiposSangre, setTiposSangre] = useState([]);
 
-    console.log('Datos de la aplicación:', applicationData);
-    // Aquí iría la llamada al endpoint de postulación
+  useEffect(() => {
+    const fetchDocumentBloodTypes = async () => {
+      try {
+        const tiposDocumento = await getTiposDocumento();
+        const tiposSangre = await getTiposSangre();
+        setTiposDocumento(tiposDocumento);
+        setTiposSangre(tiposSangre);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchDocumentBloodTypes();
+  }, []);
+  
+
+  const onSubmit = async (data) => {
+    try {
+      //GUardar la información personal y obtener el persons.Id
+      const personId = await guardarInfoPersonal({
+        identification_document: data.identification_document,
+        identification_type_id: data.identification_type_id,
+        first_name: data.first_name,
+        second_name: data.second_name,
+        first_surname: data.first_surname,
+        second_surname: data.second_surname,
+        birth_date: data.birth_date,
+        birth_city: data.birth_city,
+        birth_department: data.birth_department,
+        birth_country: data.birth_country,
+        residence_city: data.residence_city,
+        residence_address: data.residence_address,
+        email: data.email,
+        phone: data.phone,
+        blood_type_id: data.blood_type_id
+      });
+
+      // Guardar la inscripción a la oferta de trabajo con el persons.Id y jobId
+      await guardarInscripcion({
+        person_id: personId,
+        offer_id: jobId
+        period : '2022-1'
+      })
+    }
   };
+
+  
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
