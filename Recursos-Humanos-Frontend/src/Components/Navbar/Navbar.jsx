@@ -1,6 +1,6 @@
 import IconHR from "../../Assets/Icons/IconHR.svg";
 import { Link, useLocation } from 'react-router-dom';
-import "./Navbar.css";
+import "./navbar.css";
 
 export function Navbar() {
     const location = useLocation();

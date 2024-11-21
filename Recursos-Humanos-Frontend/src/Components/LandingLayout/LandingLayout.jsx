@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '../Navbar/Navbar';
+import { Navbar } from '../Navbar/navbar';
 import { Footer } from '../Footer/Footer';
-import styles from './LandingLayout.module.css';
+import styles from './landingLayout.module.css';
 
 export function LandingLayout() {
   return (

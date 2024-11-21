@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import IconHR from '../../Assets/Icons/IconHR.svg';
 import { PublicRoutes } from '../../Models'
-import './Sidebar.css';
+import './sidebar.css';
 
 
 const Sidebar = () => {

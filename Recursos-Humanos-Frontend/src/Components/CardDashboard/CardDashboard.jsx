@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './CardDashboard.module.css';
+import styles from './cardDashboard.module.css';
 import { Link } from 'react-router-dom';
 
 const CardDashboard = ({ title, IconComponent, url }) => {

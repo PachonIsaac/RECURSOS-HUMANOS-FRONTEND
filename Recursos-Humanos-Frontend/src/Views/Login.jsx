@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import './Login.css';
+import './login.css';
 import login from '../services/auth';
 import IconHR from "../Assets/Icons/IconHR.svg"
 

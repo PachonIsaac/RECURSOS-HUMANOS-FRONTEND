@@ -1,5 +1,5 @@
-import './Jobs.css';
-import './Modal.css';
+import './jobs.css';
+import './modal.css';
 import React, { useState } from 'react';
 import { FaRegClock } from 'react-icons/fa';
 import IconHR from "../Assets/Icons/IconHR.svg";
