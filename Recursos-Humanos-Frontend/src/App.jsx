@@ -16,6 +16,7 @@ import DashboardPersonal from './views/dashboardPersonal'
 import Colaborador from './views/colaborador'
 import ApplyDocument from './Views/applyDocument'
 import AuthGuard from './guards/auth.guard'
+import SuccessApplication from './views/succcesApplication'
 
 import {RoutesWithNotFound} from './Utilities'
 import {PublicRoutes, PrivateRoutes} from './models'
@@ -34,17 +35,18 @@ export function App(){
               <Route path={PublicRoutes.APPLY_DOCUMENTS} element={<ApplyDocument />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
             </Route>
-            {/* <Route element={<AuthGuard />}> */}
+            <Route element={<AuthGuard />}>
               <Route element={<DashboardLayout />}>
                 <Route path={PrivateRoutes.ADMIN_DASHBOARD} element={<Dashboard />} />
                 <Route path={PrivateRoutes.ADMIN_POSTULACIONES} element={<DashboardPostulaciones />} />
                 <Route path={PrivateRoutes.ADMIN_PERSONAL} element={<DashboardPersonal />} />
                 <Route path={PrivateRoutes.ADMIN_USER} element={<UserDetails />} />
-              
+                
                 <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
               </Route>
-            {/* </Route> */}
+            </Route>
             <Route path={PublicRoutes.LOGIN} element={<Login />} />
+            <Route path={PublicRoutes.SUCCES_APPLICATION} element={<SuccessApplication />} />
           </RoutesWithNotFound>
         </BrowserRouter>
       </div>

@@ -8,7 +8,8 @@ export const PublicRoutes = {
     LANDING: '',
     JOBS: 'jobs',
     ABOUT_US: 'aboutUs',
-    COLABORADOR: 'colaborador'
+    COLABORADOR: 'colaborador',
+    SUCCES_APPLICATION: 'success'
 };
 
 export const PrivateRoutes = {
