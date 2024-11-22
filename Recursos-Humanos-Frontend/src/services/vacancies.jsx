@@ -31,7 +31,7 @@ export const listarTrabajos = async () => {
 export const listarAspirantes = async (offer_id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`${ENDPOINT_URL}/listar-aspirantes/${offer_id}`, {
+      const response = await axios.get(`${ENDPOINT_URL}/listar-aspirantes/${offer_id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

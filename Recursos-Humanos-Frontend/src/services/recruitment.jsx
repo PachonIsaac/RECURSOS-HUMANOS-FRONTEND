@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { API_URL } from '../models';
 
+
 const ENDPOINT_URL = `${API_URL}/contratacion`;
 
 export const guardarInfoPersonal = async (data) => {
@@ -87,3 +88,4 @@ export const guardarDocumento = async (enrolled_id, document_id, file) => {
     throw error;
   }
 };
+

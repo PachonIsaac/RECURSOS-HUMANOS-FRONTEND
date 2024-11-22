@@ -12,8 +12,11 @@ import {
   Dialog, 
   DialogTitle, 
   DialogContent,
-  Button
+  Button,
+  IconButton
 } from '@mui/material';
+import { generarEmpleado } from '../services/auth';
+import { Check as CheckIcon } from '@mui/icons-material';
 
 const DashboardPostulaciones = () => {
   const [offers, setOffers] = useState([]);
@@ -38,19 +41,37 @@ const DashboardPostulaciones = () => {
   const handleOfferSelect = async (offer) => {
     try {
       const response = await listarAspirantes(offer.id);
+      console.log('Aplicantes:', response);
       setSelectedOffer(offer);
-      // Asegúrate de que response.data sea un array
-      setApplicants(response?.data || []);
-      console.log('Aplicantes:', response?.data);
+      setApplicants(response);
     } catch (error) {
-      console.error('Error fetching applicants:', error);
-      setApplicants([]); // Asegúrate de que applicants sea siempre un array
+      console.error("Error fetching applicants:", error);
     }
   };
 
   const handleCloseApplicantsDialog = () => {
     setSelectedOffer(null);
     setApplicants([]);
+  };
+
+  const handleHireApplicant = async (applicant, offer) => {
+    const empleadoData = {
+      person_id: applicant.person_id,
+      firstName: applicant.first_name,
+      firstSurname: applicant.first_surname,
+      identification: applicant.identification_document,
+      email: applicant.email,
+      offer_id: offer.id,
+      enrolled_id: applicant.enrolled_id
+    }
+    
+    try {
+      console.log ('empleadoData:', empleadoData);
+      const response = await generarEmpleado(empleadoData);
+      console.log('Contratación exitosa:', response);
+    } catch (error) {
+      console.error("Error contratando aspirante:", error);
+    }
   };
 
   return (
@@ -91,14 +112,20 @@ const DashboardPostulaciones = () => {
                   <TableCell>Nombre</TableCell>
                   <TableCell>Email</TableCell>
                   <TableCell>Fecha de Aplicación</TableCell>
+                  <TableCell>Acciones</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {applicants.map((applicant) => (
                   <TableRow key={applicant.id}>
-                    <TableCell>{applicant.nombre}</TableCell>
+                    <TableCell>{applicant.first_name}</TableCell>
                     <TableCell>{applicant.email}</TableCell>
-                    <TableCell>{applicant.fechaAplicacion}</TableCell>
+                    <TableCell>{applicant.identification_document}</TableCell>
+                    <TableCell>
+                      <IconButton onClick={() => handleHireApplicant(applicant, selectedOffer)}>
+                        <CheckIcon />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

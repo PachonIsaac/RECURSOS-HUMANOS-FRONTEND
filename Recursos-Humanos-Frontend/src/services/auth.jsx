@@ -37,3 +37,17 @@ export const listarEmpleado = async () => {
     throw error;
   }
 }
+
+export const generarEmpleado = async (empleadoData) => {
+  try {
+    const response = await axios.post(`${ENDPOINT_URL}/generar-empleado`, empleadoData , {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error('Error generando empleado:', error);
+    throw error;
+  }
+}

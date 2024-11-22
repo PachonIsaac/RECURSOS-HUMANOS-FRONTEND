@@ -9,8 +9,6 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <div className={styles.mainContent}>
-        <CardDashboard title='Información Personal' IconComponent={BsFillPersonPlusFill} url={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}/>
-        <CardDashboard title='Mis documentos' IconComponent={FaFolder} url={`/${PublicRoutes.DASHBOARD_PERSONAL}`}/>
         <CardDashboard title='Generar Certificados' IconComponent={FaFileSignature} />
       </div>
     </div>
