@@ -30,11 +30,17 @@ export const listarTrabajos = async () => {
     
 export const listarAspirantes = async (offer_id) => {
     try {
-        const response = await axios.get(`${ENDPOINT_URL}/listar-aspirantes/${offer_id}`);
-        return response.data;
+      const token = localStorage.getItem('token');
+      const response = await axios.post(`${ENDPOINT_URL}/listar-aspirantes/${offer_id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      return response.data;
     } catch (error) {
-        console.error("Error obteniendo los aspirantes:", error);
-        throw error;
+      console.error("Error obteniendo los aspirantes:", error);
+      throw error;
     }
-};
+  };
 

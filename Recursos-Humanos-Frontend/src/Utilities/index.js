@@ -1,1 +1,2 @@
-export {default as RoutesWithNotFound} from './RoutesWithNotFound.utility.jsx';
+export {default as RoutesWithNotFound} from './RoutesWithNotFound.utility';
+export * from './localStorage.utility';

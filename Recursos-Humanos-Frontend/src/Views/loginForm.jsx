@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { PublicRoutes } from '../models';
+import { PrivateRoutes, PublicRoutes } from '../models';
 import { auth } from '../services/auth';
 import IconHR from "../assets/icons/iconHR.svg"
+
 import './login.css';
 
 const LoginForm = ({ handleLogin }) => {
@@ -39,7 +40,7 @@ const LoginForm = ({ handleLogin }) => {
   };
 
   if (loggedIn) {
-    return <Navigate to='/dashboard' />;
+    return <Navigate to={`/${PrivateRoutes.ADMIN_DASHBOARD}`} />;
   }
 
   return (
