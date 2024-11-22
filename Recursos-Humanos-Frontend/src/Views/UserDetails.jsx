@@ -5,7 +5,7 @@ import { MdArrowBack } from 'react-icons/md';
 
 
 const UserDetails = () => {
-  const { id } = useParams();
+  const { identification_document } = useParams();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 

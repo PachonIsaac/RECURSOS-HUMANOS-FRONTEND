@@ -15,5 +15,5 @@ export const PrivateRoutes = {
     ADMIN_DASHBOARD: 'admin/dashboard',
     ADMIN_POSTULACIONES: 'admin/postulaciones',
     ADMIN_PERSONAL: 'admin/personal',
-    ADMIN_USER: 'admin/user/:id',
+    ADMIN_USER: 'admin/user/:identification_document',
 };
