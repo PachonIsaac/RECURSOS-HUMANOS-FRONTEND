@@ -3,12 +3,12 @@ export const API_URL = 'https://89nnm345-4000.use2.devtunnels.ms';
 export const PublicRoutes = {
 
     APPLY: 'apply/:jobId',
+    APPLY_DOCUMENTS: 'apply/documents/:enrolledId',
     LOGIN: 'login',
     LANDING: '',
     JOBS: 'jobs',
     ABOUT_US: 'aboutUs',
     COLABORADOR: 'colaborador'
-
 };
 
 export const PrivateRoutes = {

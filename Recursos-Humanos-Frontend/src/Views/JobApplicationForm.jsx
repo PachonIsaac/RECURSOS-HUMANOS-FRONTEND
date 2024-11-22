@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { Typography, TextField, Button, Grid,  Container, MenuItem, FormHelperText } from '@mui/material';
 import { guardarInfoPersonal, guardarInscripcion, getTiposDocumento, getTiposSangre } from '../services/recruitment';
 
 
 const JobApplicationForm = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { job } = location.state || {};
   const { control, handleSubmit, formState: { errors } } = useForm({
@@ -38,6 +39,7 @@ const JobApplicationForm = () => {
         const tiposSangre = await getTiposSangre();
         setTiposDocumento(tiposDocumento);
         setTiposSangre(tiposSangre);
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -68,12 +70,14 @@ const JobApplicationForm = () => {
       });
 
       // Guardar la inscripción a la oferta de trabajo con el persons.Id y jobId
-      await guardarInscripcion({
+      const enrolledID = await guardarInscripcion({
         person_id: personId,
-        offer_id: jobId,
-        period : '2022-1'
+        offer_id: job.id,
+        period : job.period
       });
       console.log('Inscripción exitosa');
+      navigate ('/apply/document/${enrolledID}');
+
     } catch (error) {
       console.error('Error en la inscripción:', error);
     }
@@ -84,6 +88,7 @@ const JobApplicationForm = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <h2>Inscripción a Oferta de Trabajo </h2>
+      <p>{}</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>

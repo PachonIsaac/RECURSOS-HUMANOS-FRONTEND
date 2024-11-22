@@ -10,7 +10,7 @@ export const guardarInfoPersonal = async (data) => {
           'Content-Type': 'application/json'
         }
       });
-      return response.data.id; // Asume que el backend retorna el persons.id en response.data.id
+      return response.data; 
     } catch (error) {
       console.error('Error guardando la información personal:', error);
       throw error;
@@ -47,6 +47,23 @@ export const guardarInfoPersonal = async (data) => {
       return response.data;
     } catch (error) {
       console.error('Error obteniendo los tipos de sangre:', error);
+      throw error;
+    }
+  }
+
+  // Función para guardar un documento mandando el enrrolled_id y el archivo, mandandolo en json
+  export const guardarDocumento = async (enrolledId, file) => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const response = await axios.post(`${ENDPOINT_URL}/guardar-documento/${enrolledId}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error guardando el documento:', error);
       throw error;
     }
   }

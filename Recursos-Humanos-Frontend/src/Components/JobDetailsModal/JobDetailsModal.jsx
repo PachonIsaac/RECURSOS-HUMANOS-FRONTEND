@@ -39,7 +39,7 @@ const JobDetailsModal = ({ isOpen, job, onClose, onApply }) => {
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <FaMoneyBillWave />
                   <Typography>
-                    Salario: {job.salary}
+                    Salario: ${job.salary.toLocaleString()}
                   </Typography>
                 </Box>
               </Grid>

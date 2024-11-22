@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import IconHR from '../../assets/icons/iconHR.svg';
-import { PublicRoutes } from '../../models'
+import { PrivateRoutes } from '../../models'
 import './sidebar.css';
 
 
@@ -13,13 +13,13 @@ const Sidebar = () => {
       </div>
       <ul className="sidebar-menu">
         <li>
-          <Link to={`/${PublicRoutes.DASHBOARD}`}>Menu</Link>
+          <Link to={`/${PrivateRoutes.ADMIN_DASHBOARD}`}>Menu</Link>
         </li>
         <li>
-          <Link to={`/${PublicRoutes.DASHBOARD_POSTULACIONES}`}>Postulaciones</Link>
+          <Link to={`/${PrivateRoutes.ADMIN_POSTULACIONES}`}>Postulaciones</Link>
         </li>
         <li>
-          <Link to={`/${PublicRoutes.DASHBOARD_PERSONAL}`}>Personal</Link>
+          <Link to={`/${PrivateRoutes.ADMIN_PERSONAL}`}>Personal</Link>
         </li>
         
       </ul>

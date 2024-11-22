@@ -6,8 +6,6 @@ import {
 } from '@mui/material';
 import { MdPersonSearch } from "react-icons/md";
 import { listarEmpleado } from '../services/auth';
-import { set } from 'react-hook-form';
-
 
 const DashboardPersonal = () => {
   const [employees, setEmployees] = useState([]);
@@ -17,52 +15,73 @@ const DashboardPersonal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchEmployees();
-  }, []);
-
     const fetchEmployees = async () => {
       try {
         const response = await listarEmpleado();
         console.log('Empleados:', response);
+        // Aseguramos que response sea un array
         setEmployees(response);
-        setFilteredEmployees(response);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error al cargar empleados:', error);
+        setEmployees([]);
       }
     };
 
-    useEffect(()=> {
-      setFilteredEmployees(
-        employees.filter((employee) =>
-          employee.first_name.toLowerCase().includes(search.toLowerCase()) ||
-          employee.second_name.toLowerCase().includes(search.toLowerCase()) ||
-          employee.first_surname.toLowerCase().includes(search.toLowerCase()) ||
-          employee.second_surname.toLowerCase().includes(search.toLowerCase()) ||
-          employee.rol.toLowerCase().includes(search.toLowerCase())
-        )
-      );
-    }, [search, employees]);
+    fetchEmployees();
+  }, []);
+
+  // Función para filtrar empleados
+  const getFilteredEmployees = () => {
+    const searchTerm = search.toLowerCase().trim();
+    if (!searchTerm) return employees;
+
+    return employees.filter((employee) => {
+      if (!employee) return false;
       
+      return [
+        employee.first_name,
+        employee.second_name,
+        employee.first_surname,
+        employee.second_surname,
+        employee.rol
+      ].some(field => 
+        field && field.toLowerCase().includes(searchTerm)
+      );
+    });
+  };
+
+  // Obtener empleados filtrados y paginados
+  const getDisplayedEmployees = () => {
+    const filtered = getFilteredEmployees();
+    const startIndex = page * rowsPerPage;
+    return filtered.slice(startIndex, startIndex + rowsPerPage);
+  };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
+    setPage(0);
   };
 
-  const handleViewDetails = (id) => {
-    navigate(`/dashboard/user/${id}`);
+  
+  const handleViewDetails = (employee) => {
+    navigate(`/admin/user/${employee.identification_document}`);
   };
 
+  // Obtener los empleados que se mostrarán
+  const displayedEmployees = getDisplayedEmployees();
+  const filteredCount = getFilteredEmployees().length;
 
   return (
-    <div className={"dashboard"}>
+    <div className="dashboard">
       <div className="main-content">
         <h1>Personal</h1>
         <TextField
@@ -70,13 +89,13 @@ const DashboardPersonal = () => {
           variant="outlined"
           value={search}
           onChange={handleSearchChange}
-          sx={{ marginBottom: 2 }}
+          sx={{ marginBottom: 2, width: '100%' }}
         />
-        {/* <Paper sx={{ width: 'auto', overflow: 'hidden' }}>
+        <Paper sx={{ width: 'auto', overflow: 'hidden' }}>
           <TableContainer sx={{ maxHeight: 650 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
-                <TableRow >
+                <TableRow>
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Documento</TableCell>
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Nombre</TableCell>
                   <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#FB9016' }}>Apellido</TableCell>
@@ -86,15 +105,25 @@ const DashboardPersonal = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {filteredEmployees.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((employee) => (
-                  <TableRow key={employee.identification_document}>
+                {displayedEmployees.map((employee) => (
+                  <TableRow 
+                    key={employee.identification_document}
+                    hover
+                  >
                     <TableCell>{employee.identification_document}</TableCell>
-                    <TableCell>{`${employee.first_name} ${employee.second_name}`}</TableCell>
-                    <TableCell>{`${employee.first_surname} ${employee.second_surname}`}</TableCell>
-                    <TableCell>{employee.rol}</TableCell>
-                    <TableCell>{employee.hiring_date}</TableCell>
                     <TableCell>
-                      <IconButton color="secondary" onClick={() => handleViewDetails(employee.identification_document)} >
+                      {`${employee.first_name || ''} ${employee.second_name || ''}`}
+                    </TableCell>
+                    <TableCell>
+                      {`${employee.first_surname || ''} ${employee.second_surname || ''}`}
+                    </TableCell>
+                    <TableCell>{employee.rol || ''}</TableCell>
+                    <TableCell>{employee.hiring_date || ''}</TableCell>
+                    <TableCell>
+                      <IconButton 
+                        color="secondary" 
+                        onClick={() => handleViewDetails(employee.identification_document)}
+                      >
                         <MdPersonSearch />
                       </IconButton>
                     </TableCell>
@@ -104,15 +133,15 @@ const DashboardPersonal = () => {
             </Table>
           </TableContainer>
           <TablePagination
-            rowsPerPageOptions={[10,25,50]}
+            rowsPerPageOptions={[10, 25, 50]}
             component="div"
-            count={filteredEmployees.length}
+            count={filteredCount}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </Paper> */}
+        </Paper>
       </div>
     </div>
   );

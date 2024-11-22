@@ -39,7 +39,7 @@ const JobCard = ({ job, onOpenDetails }) => (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <FaMoneyBillWave />
           <Typography variant="subtitle1" fontWeight="medium">
-            {job.salary}
+            ${job.salary.toLocaleString()}
           </Typography>
         </Box>
         <Button sx={{ backgroundColor: '#FB9016'}}
