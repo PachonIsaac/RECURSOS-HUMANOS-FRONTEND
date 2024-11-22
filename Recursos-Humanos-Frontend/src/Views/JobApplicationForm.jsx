@@ -35,8 +35,7 @@ const JobApplicationForm = () => {
     const fetchDocumentBloodTypes = async () => {
       try {
         const tiposDocumento = await getTiposDocumento();
-        const tiposSangre = [{ id: 1, name: 'A+' }];
-        // const tiposSangre = await getTiposSangre();
+        const tiposSangre = await getTiposSangre();
         setTiposDocumento(tiposDocumento);
         setTiposSangre(tiposSangre);
       } catch (error) {

@@ -17,3 +17,13 @@ export const auth = async (username, password) => {
     throw error;
   }
 };
+
+export const listarEmpleado = async () => {
+  try {
+    const response = await axios.get(`${ENDPOINT_URL}/listar-empleado`);
+    return response;
+  } catch (error) {
+    console.error('Error obteniendo los empleados:', error);
+    throw error;
+  }
+}

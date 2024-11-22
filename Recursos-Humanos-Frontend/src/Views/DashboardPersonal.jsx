@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   TablePagination, TextField, IconButton
 } from '@mui/material';
 import { MdPersonSearch } from "react-icons/md";
-
-import employeesData from '../datosPrueba/employees.json'
+import { listarEmpleado } from '../services/auth';
+import { set } from 'react-hook-form';
 
 
 const DashboardPersonal = () => {
@@ -18,19 +17,32 @@ const DashboardPersonal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
+    fetchEmployees();
+  }, []);
+
+    const fetchEmployees = async () => {
       try {
-        // const response = await axios.get('https://rickandmortyapi.com/api/character');
-        const response = {data: employeesData}
-        setEmployees(response.data);
+        const response = await listarEmpleado();
+        console.log('Empleados:', response);
+        setEmployees(response);
+        setFilteredEmployees(response);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData();
-  }, []);
-
+    useEffect(()=> {
+      setFilteredEmployees(
+        employees.filter((employee) =>
+          employee.first_name.toLowerCase().includes(search.toLowerCase()) ||
+          employee.second_name.toLowerCase().includes(search.toLowerCase()) ||
+          employee.first_surname.toLowerCase().includes(search.toLowerCase()) ||
+          employee.second_surname.toLowerCase().includes(search.toLowerCase()) ||
+          employee.rol.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }, [search, employees]);
+      
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -48,13 +60,6 @@ const DashboardPersonal = () => {
     navigate(`/dashboard/user/${id}`);
   };
 
-  const filteredEmployees = employees.filter((employee) =>
-    employee.first_name.toLowerCase().includes(search.toLowerCase()) ||
-    employee.second_name.toLowerCase().includes(search.toLowerCase()) ||
-    employee.first_surname.toLowerCase().includes(search.toLowerCase()) ||
-    employee.second_surname.toLowerCase().includes(search.toLowerCase()) ||
-    employee.rol.toLowerCase().includes(search.toLowerCase())
-  );
 
   return (
     <div className={"dashboard"}>
@@ -67,7 +72,7 @@ const DashboardPersonal = () => {
           onChange={handleSearchChange}
           sx={{ marginBottom: 2 }}
         />
-        <Paper sx={{ width: 'auto', overflow: 'hidden' }}>
+        {/* <Paper sx={{ width: 'auto', overflow: 'hidden' }}>
           <TableContainer sx={{ maxHeight: 650 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
@@ -107,7 +112,7 @@ const DashboardPersonal = () => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </Paper>
+        </Paper> */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Paper, Box, IconButton } from '@mui/material';
 import { MdArrowBack } from 'react-icons/md';
-import employeesData from '../datosPrueba/employees.json'; // Importa el archivo JSON con los datos de ejemplo
+
 
 const UserDetails = () => {
   const { id } = useParams();

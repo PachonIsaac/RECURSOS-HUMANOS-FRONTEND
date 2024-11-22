@@ -14,6 +14,7 @@ import UserDetails from './views/userDetails'
 import DashboardPostulaciones from './views/dashboardPostulaciones'
 import DashboardPersonal from './views/dashboardPersonal'
 import Colaborador from './views/colaborador'
+import AuthGuard from './guards/auth.guard'
 
 import {RoutesWithNotFound} from './Utilities'
 import {PublicRoutes, PrivateRoutes} from './models'
@@ -31,13 +32,15 @@ export function App(){
               <Route path={PublicRoutes.APPLY} element={<JobApplicationForm />} />
               <Route path={PublicRoutes.ABOUT_US} element={<AboutUs />} />
             </Route>
-            <Route element={<DashboardLayout />}>
-              <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} />
-              <Route path={PublicRoutes.DASHBOARD_POSTULACIONES} element={<DashboardPostulaciones />} />
-              <Route path={PublicRoutes.DASHBOARD_PERSONAL} element={<DashboardPersonal />} />
-              <Route path={PublicRoutes.DASHBOARD_USER} element={<UserDetails />} />
-              <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
-            {/* <Route path={PublicRoutes.DASHBOARD} element={<Dashboard />} /> */}
+            <Route element={<AuthGuard />}>
+              <Route element={<DashboardLayout />}>
+                <Route path={PrivateRoutes.ADMIN_DASHBOARD} element={<Dashboard />} />
+                <Route path={PrivateRoutes.ADMIN_POSTULACIONES} element={<DashboardPostulaciones />} />
+                <Route path={PrivateRoutes.ADMIN_PERSONAL} element={<DashboardPersonal />} />
+                <Route path={PrivateRoutes.ADMIN_USER} element={<UserDetails />} />
+              
+                <Route path={PublicRoutes.COLABORADOR} element={<Colaborador />} />
+              </Route>
             </Route>
             <Route path={PublicRoutes.LOGIN} element={<Login />} />
           </RoutesWithNotFound>
